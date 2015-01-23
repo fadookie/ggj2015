@@ -10,4 +10,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SwordGame.unity
   - enabled: 1
-    path: Assets/Scenes/Catcher.unity
+    path: Assets/Scenes/CatcherGame.unity
