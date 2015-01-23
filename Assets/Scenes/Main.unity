@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneList:
+  - SwordGame
   - Catcher
   scenesLoaded: 0
 --- !u!4 &957126368
