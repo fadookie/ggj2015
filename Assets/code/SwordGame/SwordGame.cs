@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SwordGame : MinigameBase {
 
+	public SwordGamePlayer player;
+
 	// Use this for initialization
 	void Start () {
 	

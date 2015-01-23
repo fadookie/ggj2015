@@ -3,6 +3,9 @@ using System.Collections;
 
 public class SwordGamePlayer : MonoBehaviour {
 
+	public SwordGameSlashArea leftSlashArea;
+	public SwordGameSlashArea rightSlashArea;
+
 	float prevDirection;
 	enum AttackDirection
 	{
@@ -33,5 +36,24 @@ public class SwordGamePlayer : MonoBehaviour {
 	void Attack(AttackDirection direction)
 	{
 		Debug.Log("Attacking in direction:" + direction.ToString());
+
+		switch(direction)
+		{
+		case AttackDirection.Left:
+			foreach(var enemy in leftSlashArea.GetIntersectingEnemies())
+			{
+				Destroy(enemy);
+			}
+			break;
+		case AttackDirection.Right:
+			foreach(var enemy in rightSlashArea.GetIntersectingEnemies())
+			{
+				Destroy(enemy);
+			}
+			break;
+		default:
+			Debug.LogError("Unexpected direction:" + direction.ToString());
+			break;
+		}
 	}
 }

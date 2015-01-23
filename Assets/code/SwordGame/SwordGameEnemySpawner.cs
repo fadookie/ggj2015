@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SwordGameEnemySpawner : MonoBehaviour {
 
+	public SwordGame swordGame;
 	public Transform enemyPrefab;
 	public Transform[] spawnPositions;
 	public float spawnInterval = 2f;
@@ -26,16 +27,20 @@ public class SwordGameEnemySpawner : MonoBehaviour {
 
 	void SpawnEnemies()
 	{
-		SwordGameEnemy instance = Instantiate (enemyPrefab) as SwordGameEnemy;
-		instance.transform.parent = transform;
+		Transform instance = Instantiate (enemyPrefab) as Transform;
+		instance.parent = transform;
 		int size = spawnPositions.Length;
 		if (size > 0)
 		{
-			instance.transform.localPosition = spawnPositions[Random.Range(0, size-1)].localPosition;
+			instance.localPosition = spawnPositions[Random.Range(0, size)].localPosition;
 		}
 		else
 		{
 			Debug.LogError("Tried to spawn enemies, but no spawn points are set");
 		}
+
+		SwordGameEnemy enemy = instance.GetComponent<SwordGameEnemy>();
+		enemy.swordGame = swordGame;
 	}
+	
 }
