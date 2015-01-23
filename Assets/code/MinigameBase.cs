@@ -14,12 +14,13 @@ public abstract class MinigameBase : MonoBehaviour {
 			return _score;
 		}
 		set {
+			int delta = value - _score;
 			_score = value;
 			if (onScoreIncrease != null) {
 				if(value > 0) {
-					onScoreIncrease(this, value);
+					onScoreIncrease(this, delta);
 				} else if (value < 0) {
-					onScoreDecrease(this, value);
+					onScoreDecrease(this, delta);
 				}
 			}
 		}
