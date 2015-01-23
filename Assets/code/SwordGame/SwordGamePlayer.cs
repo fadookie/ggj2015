@@ -23,11 +23,11 @@ public class SwordGamePlayer : MonoBehaviour {
 		float direction = Input.GetAxis("Horizontal");
 		if (direction > 0f && !(prevDirection > 0f))
 		{
-			Attack (AttackDirection.Left);
+			Attack (AttackDirection.Right);
 		}
 		if (direction < 0f && !(prevDirection < 0f))
 		{
-			Attack (AttackDirection.Right);
+			Attack (AttackDirection.Left);
 		}
 		prevDirection = direction;
 
@@ -42,13 +42,15 @@ public class SwordGamePlayer : MonoBehaviour {
 		case AttackDirection.Left:
 			foreach(var enemy in leftSlashArea.GetIntersectingEnemies())
 			{
-				Destroy(enemy);
+				Destroy(enemy.gameObject);
 			}
+			leftSlashArea.AllEnemiesDestroyed();
 			break;
 		case AttackDirection.Right:
 			foreach(var enemy in rightSlashArea.GetIntersectingEnemies())
 			{
-				Destroy(enemy);
+				Destroy(enemy.gameObject);
+				rightSlashArea.AllEnemiesDestroyed();
 			}
 			break;
 		default:

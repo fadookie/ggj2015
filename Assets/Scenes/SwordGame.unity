@@ -118,6 +118,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSlashArea: {fileID: 862826601}
   rightSlashArea: {fileID: 1491155403}
+--- !u!1 &338252048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 338252049}
+  m_Layer: 8
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &338252049
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 338252048}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 930056547}
+  m_RootOrder: 6
 --- !u!1 &479193900
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,7 +251,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 599945615}
   - 33: {fileID: 599945618}
-  - 135: {fileID: 599945617}
   - 23: {fileID: 599945616}
   m_Layer: 8
   m_Name: Sphere
@@ -265,18 +291,6 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!135 &599945617
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 599945614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: .5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &599945618
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -494,6 +508,7 @@ Transform:
   - {fileID: 479193901}
   - {fileID: 793702630}
   - {fileID: 831022943}
+  - {fileID: 338252049}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &930056548
