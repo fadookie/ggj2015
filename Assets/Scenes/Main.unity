@@ -104,6 +104,7 @@ MonoBehaviour:
   sceneList:
   - SwordGame
   - CatcherGame
+  - RunnerGame
   scenesLoaded: 0
 --- !u!4 &957126368
 Transform:
@@ -148,6 +149,7 @@ MonoBehaviour:
   gameNames:
   - SwordGame
   - CatcherGame
+  - RunningGame
   randomizePlayers: 1
   randomizePlayersDelayS: 15
 --- !u!4 &1918316785
@@ -195,6 +197,9 @@ MonoBehaviour:
   player1Inputs:
   - Player1Left
   - Player1Right
+  player2Inputs:
+  - Player2Left
+  - Player2Right
 --- !u!4 &2130330549
 Transform:
   m_ObjectHideFlags: 0

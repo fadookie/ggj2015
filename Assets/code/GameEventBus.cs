@@ -50,6 +50,7 @@ public class GameEventBus : MonoBehaviour {
 			print ("find object (" + gameObj + ") with name " + gameName + " after " + numCyclesToFindObj + " cycles");
 			MinigameBase game = gameObj.GetComponent<MinigameBase>();
 			games.Add(game);
+			game.PlayerIdx = games.IndexOf(game);
 			subscribeToGame(game);
 		}
 		gamesLoaded = true;
