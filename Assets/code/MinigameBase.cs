@@ -8,7 +8,8 @@ public abstract class MinigameBase : MonoBehaviour {
 	public MinigameScoreEventHandler onScoreDecrease;
 
 	public delegate void MinigameComboEventHandler(MinigameBase sender, Combo combo);
-	public MinigameComboEventHandler onComboEvent;
+	public MinigameComboEventHandler onComboEventPassed;
+	public MinigameComboEventHandler onComboEventFailed;
 	#endregion
 
 	int _score;
@@ -38,6 +39,18 @@ public abstract class MinigameBase : MonoBehaviour {
 			int oldIdx = _playerIdx;
 			_playerIdx = value;
 			onPlayerIdxChange(oldIdx, value);
+		}
+	}
+
+	public void postComboEventPassed(Combo combo) {
+		if(onComboEventPassed != null) {
+			onComboEventPassed(this, combo);
+		}
+	}
+
+	public void postComboEventFailed(Combo combo) {
+		if(onComboEventFailed != null) {
+			onComboEventFailed(this, combo);
 		}
 	}
 

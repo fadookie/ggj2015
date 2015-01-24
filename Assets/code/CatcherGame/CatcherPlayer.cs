@@ -42,6 +42,15 @@ public class CatcherPlayer : MonoBehaviour {
 		case FallingTarget.TargetType.Bomb:
 			game.Score++;
 			break;
+		case FallingTarget.TargetType.SpecialColor0:
+			game.onColorCaught(Combo.Color.Color0);
+			break;
+		case FallingTarget.TargetType.SpecialColor1:
+			game.onColorCaught(Combo.Color.Color1);
+			break;
+		case FallingTarget.TargetType.SpecialColor2:
+			game.onColorCaught(Combo.Color.Color2);
+			break;
 		}
 		other.gameObject.SetActive(false);
 		Destroy(other.gameObject);

@@ -14,8 +14,8 @@ public class TestGame : MinigameBase {
 		InputManager input = Services.instance.Get<InputManager>();
 		if (input != null) {
 			if(input.GetButtonDown(PlayerIdx, InputManager.Button.Left)) {
-				if(onComboEvent != null) {
-					onComboEvent(this, new Combo(Combo.Color.Color0, Combo.Shape.Shape0));
+				if(onComboEventPassed != null) {
+					onComboEventPassed(this, new Combo(Combo.Color.Color0, Combo.Shape.Shape0));
 				}
 			} else if (input.GetButtonDown(PlayerIdx, InputManager.Button.Right)) {
 				--Score;

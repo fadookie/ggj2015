@@ -39,11 +39,40 @@ public class TargetSpawner : MonoBehaviour {
 	}
 
 	public void spawnTargetOfType(FallingTarget.TargetType type) {
+		Vector3 pos = new Vector3(Random.Range(-maxSpawnPos.x, maxSpawnPos.x), Random.Range(-maxSpawnPos.y, maxSpawnPos.y), 0);
+		spawnTargetOfType(type, pos);
+	}
+
+	public void spawnTargetOfType(FallingTarget.TargetType type, Vector3 pos) {
 		GameObject spawned = Instantiate(spawnedPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 		spawned.transform.parent = transform;
-		Vector3 pos = new Vector3(Random.Range(-maxSpawnPos.x, maxSpawnPos.x), Random.Range(-maxSpawnPos.y, maxSpawnPos.y), 0);
 		spawned.transform.localPosition = pos;
 		FallingTarget target = spawned.GetComponent<FallingTarget>();
 		target.targetType = type;
+	}
+
+	Vector3 posForSpecialTarget(int idx) {
+		float partitionWidth = spawnArea.size.x / System.Enum.GetNames(typeof(Combo.Color)).Length;
+		float posX = (partitionWidth * (idx)) - partitionWidth;
+		return new Vector3(posX, -maxSpawnPos.y, 0);
+	}
+
+	public void spawnSpecialTargets() {
+		for(int i = 0; i < System.Enum.GetNames(typeof(Combo.Color)).Length; ++i) {
+			Vector3 pos = posForSpecialTarget(i);
+			FallingTarget.TargetType targetType = default(FallingTarget.TargetType);
+			switch(i) {
+			case 0:
+				targetType = FallingTarget.TargetType.SpecialColor0;
+				break;
+			case 1:
+				targetType = FallingTarget.TargetType.SpecialColor1;
+				break;
+			case 2:
+				targetType = FallingTarget.TargetType.SpecialColor2;
+				break;
+			}
+			spawnTargetOfType(targetType, pos);
+		}
 	}
 }

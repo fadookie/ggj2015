@@ -89,7 +89,14 @@ MonoBehaviour:
   materialsPerType:
   - {fileID: 2100000, guid: b9e04577e37164823823a0d7138f55b0, type: 2}
   - {fileID: 2100000, guid: 33f37b27c10e645c4bac5565c29da5ff, type: 2}
+  - {fileID: 2100000, guid: 56e77e8db430b4d8fa744cde09928faa, type: 2}
+  - {fileID: 2100000, guid: 9f6e0fe5a491a43cb8f3cfe920224445, type: 2}
+  - {fileID: 2100000, guid: 47fce5697b24946669e2bd3aa9a4d3ec, type: 2}
   - {fileID: 2100000, guid: 8c76b3751609543a1a856eb55664b1fd, type: 2}
+  meshPerShape:
+  - {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   targetType: 0
 --- !u!135 &13500000
 SphereCollider:

@@ -103,7 +103,7 @@ public class GameEventBus : MonoBehaviour {
 	void subscribeToGame(MinigameBase game) {
 		game.onScoreIncrease += onScoreIncrease;
 		game.onScoreDecrease += onScoreDecrease;
-		game.onComboEvent += onComboEvent;
+		game.onComboEventPassed += onComboEvent;
 	}
 
 	void onComboEvent(MinigameBase sender, Combo combo) {

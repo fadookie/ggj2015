@@ -10,7 +10,10 @@ public class FallingTarget : MonoBehaviour {
 	public enum TargetType {
 		ShouldCatch = 0,
 		ShouldNotCatch,
-		Bomb
+		SpecialColor0,
+		SpecialColor1,
+		SpecialColor2,
+		Bomb,
 	}
 
 	public Material[] materialsPerType;

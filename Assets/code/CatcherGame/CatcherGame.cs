@@ -24,6 +24,8 @@ public class CatcherGame : MinigameBase {
 
 	public Text scoreLabel;
 
+	Combo? activeCombo = null;
+
 	// Use this for initialization
 	void Start () {
 		Services.instance.Set<CatcherGame>(this);
@@ -46,6 +48,18 @@ public class CatcherGame : MinigameBase {
 		}
 	}
 
+	public void onColorCaught(Combo.Color caughtColor) {
+		if (activeCombo.HasValue) {
+			if (activeCombo.Value.color.Equals(caughtColor)) {
+				postComboEventPassed(activeCombo.Value);
+			} else {
+				//Combo failed!
+				postComboEventFailed(activeCombo.Value);
+				activeCombo = null;
+			}
+		}
+	}
+
 	public override void onGoodEvent(int magnitude) {
 		print(gameObject.name + " onGoodEvent mag:" + magnitude);
 		timeScaleGood += TimeScaleAdjustOnGood *  Mathf.Abs(magnitude);
@@ -61,6 +75,8 @@ public class CatcherGame : MinigameBase {
 
 	public override void onCombo(Combo combo) {
 		print(gameObject.name + " onComboEvent: " + combo);
+		Services.instance.Get<TargetSpawner>().spawnSpecialTargets();
+		activeCombo = combo;
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
