@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnedPrefab: {fileID: 100000, guid: f7e5e0e32c7e24c6cadcfbf9bf2a9e3f, type: 2}
   spawnDelayS: 1
+  shouldNotCatchSpawnChancePct: .300000012
 --- !u!65 &65734171
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -630,7 +631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bc15c69c7ab480b80f9c3f76d2de62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetTimeScale: 1.5
   TargetTimeScaleMin: .699999988
   TargetTimeScaleMax: 3
   TimeScaleAdjustOnGood: -.400000006

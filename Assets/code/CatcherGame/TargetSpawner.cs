@@ -9,6 +9,7 @@ public class TargetSpawner : MonoBehaviour {
 	
 	float lastSpawnTimeS = -1;
 	public float spawnDelayS = 5;
+	public float shouldNotCatchSpawnChancePct = 0.10f;
 
 	CatcherGame game;
 	
@@ -25,7 +26,13 @@ public class TargetSpawner : MonoBehaviour {
 	void Update () {
 		if (lastSpawnTimeS < 0) {
 			lastSpawnTimeS = Time.time;
-			spawnTargetOfType(FallingTarget.TargetType.ShouldCatch);
+			FallingTarget.TargetType spawnType;
+			if(Random.value <= shouldNotCatchSpawnChancePct) {
+				spawnType = FallingTarget.TargetType.ShouldNotCatch;
+			} else {
+				spawnType = FallingTarget.TargetType.ShouldCatch;
+			}
+			spawnTargetOfType(spawnType);
 		} else if (lastSpawnTimeS >= 0 && Time.time - lastSpawnTimeS > spawnDelayS / game.TargetTimeScale) {
 			lastSpawnTimeS = -1;
 		}
