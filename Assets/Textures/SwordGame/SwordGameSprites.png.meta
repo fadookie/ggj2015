@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: 1b8d1d08706104c77978448dc00da8fa
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Slash_Enemy_f1
+    21300002: Slash_Enemy_f2
+    21300004: Slash_Samurai_F1
+    21300006: Slash_Samurai_F2
+    21300008: Slash_Samurai_F3
+    21300010: Slash_Samurai_F4
+    21300012: Slash_Samurai_F5
+    21300014: Slash_Samurai_F6
+    21300016: Slash_Samurai_F7
+    21300018: Slash_Samurai_F8
+    21300020: Slash_Samurai_Special
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Slash_Enemy_f1
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1034
+        width: 275
+        height: 207
+      alignment: 9
+      pivot: {x: .50181818, y: .483091801}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Enemy_f2
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1243
+        width: 279
+        height: 207
+      alignment: 9
+      pivot: {x: .505376339, y: .483091801}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F1
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 856
+        width: 264
+        height: 299
+      alignment: 9
+      pivot: {x: .848484874, y: .501672268}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F2
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1751
+        width: 437
+        height: 295
+      alignment: 9
+      pivot: {x: .498855829, y: .508474588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1752
+        width: 444
+        height: 294
+      alignment: 9
+      pivot: {x: .5, y: .510204077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1452
+        width: 329
+        height: 297
+      alignment: 9
+      pivot: {x: .325227976, y: .50505048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F5
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1453
+        width: 327
+        height: 296
+      alignment: 9
+      pivot: {x: .324159026, y: .506756783}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1455
+        width: 330
+        height: 295
+      alignment: 9
+      pivot: {x: .333333343, y: .508474588}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F7
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1157
+        width: 327
+        height: 294
+      alignment: 9
+      pivot: {x: .327217132, y: .510204077}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_F8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 1156
+        width: 329
+        height: 297
+      alignment: 9
+      pivot: {x: .325227976, y: .50505048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_Samurai_Special
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 855
+        width: 265
+        height: 299
+      alignment: 9
+      pivot: {x: .849056602, y: .501672268}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
