@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,8 +10,11 @@ public class GameEventBus : MonoBehaviour {
 	bool gamesLoaded = false;
 
 	public bool randomizePlayers = false;
+	public float randomizeDelayAlertPreroll = 1;
 	public float randomizePlayersDelayS = 15;
 	IEnumerator randomizePlayersRoutine = null;
+
+	public RectTransform InputSwapAlert;
 
 	// Use this for initialization
 	void Start () {
@@ -62,14 +66,20 @@ public class GameEventBus : MonoBehaviour {
 
 	IEnumerator randomizePlayersAfterDelay() {
 		do {
-			yield return new WaitForSeconds(randomizePlayersDelayS);
+			yield return new WaitForSeconds(randomizePlayersDelayS - randomizeDelayAlertPreroll);
+			InputSwapAlert.gameObject.SetActive(true);
+			yield return new WaitForSeconds(randomizeDelayAlertPreroll);
+			InputSwapAlert.gameObject.SetActive(false);
+
+			//Shuffle PlayerIdx variables but not actual order in games array to keep input/outputs intact
+			MinigameBase[] gamesTemp = games.ToArray();
 			if (randomizePlayers && gamesLoaded) {
-				games.Shuffle();
-				for (int i = 0; i < games.Count; ++i) {
-					MinigameBase game = games[i];
+				gamesTemp.Shuffle();
+				for (int i = 0; i < gamesTemp.Length; ++i) {
+					MinigameBase game = gamesTemp[i];
 					game.PlayerIdx = i;
 				}
-				print(string.Format("Games shuffled! new order = {0}", games.toString()));
+				print(string.Format("Game inputs shuffled! new order = {0}", gamesTemp.toString()));
 			}
 		} while(true);
 	}
