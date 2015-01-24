@@ -1,22 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &105178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 405178}
-  - 33: {fileID: 3305178}
-  - 23: {fileID: 2305178}
-  m_Layer: 10
-  m_Name: Graphics
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &105180
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,18 +17,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &405178
-Transform:
-  m_ObjectHideFlags: 1
+--- !u!1 &161400
+GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 405180}
-  m_RootOrder: 0
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461400}
+  - 33: {fileID: 3361400}
+  - 23: {fileID: 2361400}
+  - 95: {fileID: 9561400}
+  m_Layer: 10
+  m_Name: NBR_building_b
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &405180
 Transform:
   m_ObjectHideFlags: 1
@@ -54,24 +43,39 @@ Transform:
   m_GameObject: {fileID: 105180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.17999995, z: 0}
-  m_LocalScale: {x: 3, y: 1, z: 1}
+  m_LocalScale: {x: 12.2627935, y: 1, z: 1}
   m_Children:
-  - {fileID: 405178}
+  - {fileID: 461400}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2305178
+--- !u!4 &461400
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161400}
+  m_LocalRotation: {x: 1.15202326e-07, y: .707106709, z: .707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: 0, y: -9.01000023, z: -0}
+  m_LocalScale: {x: .0815474838, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 405180}
+  m_RootOrder: 0
+--- !u!23 &2361400
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105178}
+  m_GameObject: {fileID: 161400}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 910ac24403f9e4df7a5bd9db894c0067, type: 2}
+  - {fileID: 2100000, guid: 7168fdb06b1b14afabc7f9c6b0b0d767, type: 2}
+  - {fileID: 2100000, guid: 0370f17a86c5444febca6373614ed801, type: 2}
+  - {fileID: 2100000, guid: 6322e35d02fee42e79771af60f7be2f4, type: 2}
+  - {fileID: 2100000, guid: d68b2cf2659124da2bfd1ff446b04b68, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -79,13 +83,13 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3305178
+--- !u!33 &3361400
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105178}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_GameObject: {fileID: 161400}
+  m_Mesh: {fileID: 4300000, guid: 7389a220f095945cab98bef0c5f599cf, type: 3}
 --- !u!54 &5405178
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -113,6 +117,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &9561400
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161400}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7389a220f095945cab98bef0c5f599cf, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

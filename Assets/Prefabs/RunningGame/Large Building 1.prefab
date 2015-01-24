@@ -1,22 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &101138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 401138}
-  - 33: {fileID: 3301138}
-  - 23: {fileID: 2301138}
-  m_Layer: 10
-  m_Name: Graphics
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &101140
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,18 +17,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &401138
-Transform:
-  m_ObjectHideFlags: 1
+--- !u!1 &130990
+GameObject:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 401140}
-  m_RootOrder: 0
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 430990}
+  - 33: {fileID: 3330990}
+  - 23: {fileID: 2330990}
+  - 95: {fileID: 9530990}
+  m_Layer: 10
+  m_Name: NBR_building_a
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &401140
 Transform:
   m_ObjectHideFlags: 1
@@ -54,24 +43,39 @@ Transform:
   m_GameObject: {fileID: 101140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.17999995, z: 0}
-  m_LocalScale: {x: 3.70000005, y: 1, z: 1}
+  m_LocalScale: {x: 21.0437508, y: 1, z: 1}
   m_Children:
-  - {fileID: 401138}
+  - {fileID: 430990}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2301138
+--- !u!4 &430990
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130990}
+  m_LocalRotation: {x: 1.15202326e-07, y: .707106709, z: .707106829, w: -1.15202312e-07}
+  m_LocalPosition: {x: 0, y: -11.0900002, z: 0}
+  m_LocalScale: {x: .0475200452, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 401140}
+  m_RootOrder: 0
+--- !u!23 &2330990
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101138}
+  m_GameObject: {fileID: 130990}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 910ac24403f9e4df7a5bd9db894c0067, type: 2}
+  - {fileID: 2100000, guid: 6322e35d02fee42e79771af60f7be2f4, type: 2}
+  - {fileID: 2100000, guid: 0370f17a86c5444febca6373614ed801, type: 2}
+  - {fileID: 2100000, guid: d68b2cf2659124da2bfd1ff446b04b68, type: 2}
+  - {fileID: 2100000, guid: 9c162a224d9e3497ab5b59451a43fca4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -79,13 +83,13 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3301138
+--- !u!33 &3330990
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101138}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_GameObject: {fileID: 130990}
+  m_Mesh: {fileID: 4300000, guid: c0e390c6b16ae49299a7e44545cea4c8, type: 3}
 --- !u!54 &5424070
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -113,6 +117,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &9530990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c0e390c6b16ae49299a7e44545cea4c8, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

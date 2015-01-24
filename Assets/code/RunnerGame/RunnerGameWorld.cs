@@ -56,13 +56,15 @@ public class RunnerGameWorld : MonoBehaviour {
 		int index = -1;
 		index = activeBuildings.Count-1;
 		float lastPos = 0;
+		float scale = 1;
 		if(index != -1)
 		{
 			lastPos = activeBuildings[index].localPosition.x;
+			scale = activeBuildings[index].localScale.x;
 		}
 		if (lastPos <= activeArea)
 		{
-			SpawnNewBuilding(new Vector3(lastPos + Random.Range(6.0f, 8.5f), Random.Range(-1.2f, 1.2f), 0f));
+			SpawnNewBuilding(new Vector3(lastPos + scale + Random.Range(6.0f, 8.5f), Random.Range(-2.2f, 2.2f), 0f));
 		}
 
 		{
@@ -101,7 +103,7 @@ public class RunnerGameWorld : MonoBehaviour {
 			}
 			else
 			{
-				transform = SpawnRandomBuilding(smallBuildings);
+				transform = SpawnRandomBuilding(mediumBuildings);
 			}
 		}
 		else if (awesomeness > smallBuildingsThreshold)
@@ -159,9 +161,8 @@ public class RunnerGameWorld : MonoBehaviour {
 		startBuilding.transform.localPosition = startPos;
 
 
-		SpawnNewBuilding(new Vector3(15f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(23f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(30f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(24f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(48f, -1f, 0f));
 		
 		foreach(var building in toBeAdded)
 		{

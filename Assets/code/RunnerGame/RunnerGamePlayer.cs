@@ -91,10 +91,13 @@ public class RunnerGamePlayer : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{
 		Vector3 avgNormal = Vector3.zero;
+		Vector3 avgPos = Vector3.zero;
 		foreach(var contact in collision.contacts)
 		{
 			avgNormal += contact.normal;
+			avgPos += contact.point;
 		}
+		avgPos /= collision.contacts.Length;
 		avgNormal.Normalize();
 
 		float dot = Vector3.Dot(avgNormal, Vector3.up);
@@ -103,8 +106,9 @@ public class RunnerGamePlayer : MonoBehaviour {
 			game.Score++;
 			collisionCount++;
 		}
-	}
-	
+		transform.localPosition = avgPos + avgNormal * 0.49f;
+	} 
+
 	void OnCollisionExit(Collision collision)
 	{
 		collisionCount--;
