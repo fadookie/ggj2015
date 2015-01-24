@@ -829,6 +829,7 @@ MonoBehaviour:
   gameNames:
   - TestGame
   - RunningGame
+  games: []
   randomizePlayers: 0
   randomizeDelayAlertPreroll: 1
   randomizePlayersDelayS: 15
