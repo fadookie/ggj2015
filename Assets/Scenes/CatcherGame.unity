@@ -798,8 +798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveVel: 10
-  xMin: {fileID: 1977153886}
-  xMax: {fileID: 1714479548}
+  xMin: {fileID: 1977153887}
+  xMax: {fileID: 1714479549}
 --- !u!23 &1237013563
 Renderer:
   m_ObjectHideFlags: 0

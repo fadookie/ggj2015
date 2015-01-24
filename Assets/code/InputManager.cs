@@ -42,6 +42,10 @@ public class InputManager : MonoBehaviour {
 	}
 
 	public string GetButtonName(int playerIdx, Button button) {
-		return playerInputs[playerIdx][(int)button];
+		try {
+			return playerInputs[playerIdx][(int)button];
+		} catch (System.ArgumentOutOfRangeException) {
+			throw new UnityException(string.Format("Argument out of range for playerIdx={0}, button={1}", playerIdx, button));
+		}
 	}
 }
