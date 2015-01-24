@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class InputManager : MonoBehaviour {
 
-	public const int NUM_PLAYERS = 2;
+	public const int NUM_PLAYERS = 3;
 	public List<string[]> playerInputs = new List<string[]>(NUM_PLAYERS);
 	public string[] player0Inputs;
 	public string[] player1Inputs;
+	public string[] player2Inputs;
 
 	public enum Button {
 		Left = 0,
 		Right,
-		Special
+//		Special
 	}
 
 	// Use this for initialization
@@ -21,6 +22,7 @@ public class InputManager : MonoBehaviour {
 
 		playerInputs.Add(player0Inputs);
 		playerInputs.Add(player1Inputs);
+		playerInputs.Add(player2Inputs);
 	}
 
 	public bool GetButton(int playerIdx, Button button) {
