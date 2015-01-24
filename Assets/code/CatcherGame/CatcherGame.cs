@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CatcherGame : MinigameBase {
@@ -14,6 +15,8 @@ public class CatcherGame : MinigameBase {
 	public float TimeScaleEffectDurationS = 2f;
 	float timeScaleEffectElapsed = -1f;
 
+	public Text scoreLabel;
+
 	// Use this for initialization
 	void Start () {
 		Services.instance.Set<CatcherGame>(this);
@@ -22,6 +25,8 @@ public class CatcherGame : MinigameBase {
 	
 	// Update is called once per frame
 	void Update () {
+		scoreLabel.text = string.Format("Score: {0}", Score);
+
 		if (timeScaleEffectElapsed >= 0) {
 			timeScaleEffectElapsed += Time.deltaTime;
 			if (timeScaleEffectElapsed > TimeScaleEffectDurationS) {
