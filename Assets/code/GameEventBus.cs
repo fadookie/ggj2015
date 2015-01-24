@@ -34,6 +34,14 @@ public class GameEventBus : MonoBehaviour {
 		}
 	}
 
+	void Update() {
+		float timeScaleDelta = 0.01f * (Time.deltaTime / Time.timeScale);
+//		print (timeScaleDelta);
+		Time.timeScale += timeScaleDelta;
+		Time.timeScale = Mathf.Clamp(Time.timeScale, 1f, 4f);
+//		print (Time.timeScale);
+	}
+
 	void onScenesLoaded() {
 		StartCoroutine(findGameObjectsAfterDelay());
 	}
@@ -70,10 +78,10 @@ public class GameEventBus : MonoBehaviour {
 				yield break;
 			}
 
-			yield return new WaitForSeconds(randomizePlayersDelayS - randomizeDelayAlertPreroll);
+			yield return new WaitForSeconds((randomizePlayersDelayS - randomizeDelayAlertPreroll) * Time.timeScale);
 
 			if (InputSwapAlert) InputSwapAlert.gameObject.SetActive(true);
-			yield return new WaitForSeconds(randomizeDelayAlertPreroll);
+			yield return new WaitForSeconds(randomizeDelayAlertPreroll *  Time.timeScale);
 
 			if (InputSwapAlert) InputSwapAlert.gameObject.SetActive(false);
 
