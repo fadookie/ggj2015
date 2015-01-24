@@ -66,14 +66,20 @@ public class GameEventBus : MonoBehaviour {
 
 	IEnumerator randomizePlayersAfterDelay() {
 		do {
+			if (!randomizePlayers) {
+				yield break;
+			}
+
 			yield return new WaitForSeconds(randomizePlayersDelayS - randomizeDelayAlertPreroll);
-			InputSwapAlert.gameObject.SetActive(true);
+
+			if (InputSwapAlert) InputSwapAlert.gameObject.SetActive(true);
 			yield return new WaitForSeconds(randomizeDelayAlertPreroll);
-			InputSwapAlert.gameObject.SetActive(false);
+
+			if (InputSwapAlert) InputSwapAlert.gameObject.SetActive(false);
 
 			//Shuffle PlayerIdx variables but not actual order in games array to keep input/outputs intact
 			MinigameBase[] gamesTemp = games.ToArray();
-			if (randomizePlayers && gamesLoaded) {
+			if (gamesLoaded) {
 				gamesTemp.Shuffle();
 				for (int i = 0; i < gamesTemp.Length; ++i) {
 					MinigameBase game = gamesTemp[i];

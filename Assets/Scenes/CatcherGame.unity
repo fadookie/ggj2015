@@ -630,12 +630,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bc15c69c7ab480b80f9c3f76d2de62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetTimeScale: 1
-  TargetTimeScaleMin: .600000024
-  TargetTimeScaleMax: 2
-  TimeScaleAdjustOnGood: -.0500000007
-  TimeScaleAdjustOnBad: .100000001
-  TimeScaleEffectDurationS: 2
+  TargetTimeScale: 1.5
+  TargetTimeScaleMin: .699999988
+  TargetTimeScaleMax: 3
+  TimeScaleAdjustOnGood: -.400000006
+  TimeScaleAdjustOnBad: .400000006
+  TimeScaleEffectDurationS: 3
   scoreLabel: {fileID: 4488902}
 --- !u!1 &1098738027
 GameObject:
@@ -669,7 +669,9 @@ MonoBehaviour:
   - TestGame0
   - CatcherGame
   randomizePlayers: 0
+  randomizeDelayAlertPreroll: 1
   randomizePlayersDelayS: 15
+  InputSwapAlert: {fileID: 0}
 --- !u!4 &1098738029
 Transform:
   m_ObjectHideFlags: 0
