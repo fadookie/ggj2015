@@ -8,7 +8,14 @@ public class GameEventBus : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (Services.instance.Get<GameEventBus>() != null) {
+			//Abort load as another GameEventBus is present
+			gameObject.SetActive(false);
+			return;
+		}
+
 		Services.instance.Set<GameEventBus>(this);
+
 		SceneLoader sl = Services.instance.Get<SceneLoader>();
 		if (sl.scenesLoaded) {
 			onScenesLoaded();
@@ -22,12 +29,19 @@ public class GameEventBus : MonoBehaviour {
 	}
 
 	IEnumerator findGameObjectsAfterDelay() {
-		yield return new WaitForEndOfFrame();
-
 		games = new List<MinigameBase>(gameNames.Length);
 		foreach(string gameName in gameNames) {
-			GameObject gameObj = GameObject.Find(gameName);
-			print ("find object (" + gameObj + ") with name " + gameName);
+			GameObject gameObj = null;
+			int numCyclesToFindObj = 0;
+			do {
+				gameObj = GameObject.Find(gameName);
+				if (gameObj != null) {
+					break;
+				}
+				++numCyclesToFindObj;
+				yield return new WaitForEndOfFrame();
+			} while (gameObj == null);
+			print ("find object (" + gameObj + ") with name " + gameName + " after " + numCyclesToFindObj + " cycles");
 			MinigameBase game = gameObj.GetComponent<MinigameBase>();
 			games.Add(game);
 			subscribeToGame(game);
