@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
+//#define SEND_EVENTS_ON_SCORE_CHANGE
+
 public class GameEventBus : MonoBehaviour {
 	public string[] gameNames;
 	List<MinigameBase> games;
@@ -104,14 +106,18 @@ public class GameEventBus : MonoBehaviour {
 	}
 
 	void onScoreIncrease(MinigameBase sender, int delta) {
+#if SEND_EVENTS_ON_SCORE_CHANGE
 		int gameIdx = games.IndexOf(sender);
 		int nextGameIdx = (gameIdx + 1) % games.Count;
 		games[nextGameIdx].onGoodEvent(delta);
+#endif
 	}
 
 	void onScoreDecrease(MinigameBase sender, int delta) {
+#if SEND_EVENTS_ON_SCORE_CHANGE
 		int gameIdx = games.IndexOf(sender);
 		int nextGameIdx = (gameIdx + 1) % games.Count;
 		games[nextGameIdx].onBadEvent(delta);
+#endif
 	}
 }
