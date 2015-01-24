@@ -368,8 +368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99d42332e9fc4de1badf35e2920c68a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button1: Fire2
-  button2: Jump
   loggingEnabled: 0
 --- !u!4 &509479702
 Transform:
@@ -474,6 +472,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bc15c69c7ab480b80f9c3f76d2de62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TargetTimeScale: 1
+  TargetTimeScaleMin: .600000024
+  TargetTimeScaleMax: 2
+  TimeScaleAdjustOnGood: -.0500000007
+  TimeScaleAdjustOnBad: .100000001
+  TimeScaleEffectDurationS: 2
 --- !u!1 &1098738027
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,9 +635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b6e373549134de59da50a5b2134394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftButton: Fire1
-  rightButton: Fire3
-  moveVel: .5
+  moveVel: 10
   xMin: {fileID: 1977153886}
   xMax: {fileID: 1714479548}
 --- !u!23 &1237013563
