@@ -27,7 +27,7 @@ public class SwordGameEnemySpawner : MonoBehaviour {
 
 	void SpawnEnemies()
 	{
-		Transform instance = Instantiate (enemyPrefab) as Transform;
+		Transform instance = Instantiate (enemyPrefab, new Vector3(0f,0f, 10e10f), Quaternion.identity) as Transform;
 		instance.parent = transform;
 		int size = spawnPositions.Length;
 		if (size > 0)

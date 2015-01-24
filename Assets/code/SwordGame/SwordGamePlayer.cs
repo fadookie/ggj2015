@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SwordGamePlayer : MonoBehaviour {
 
+	public SwordGame swordGame;
 	public SwordGameSlashArea leftSlashArea;
 	public SwordGameSlashArea rightSlashArea;
+
+	public int onPlayerHitScore = -1;
+
+	List<SwordGameEnemy> toBeRemoved;
 
 	float prevDirection;
 	enum AttackDirection
@@ -15,7 +21,7 @@ public class SwordGamePlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		toBeRemoved = new List<SwordGameEnemy>();
 	}
 	
 	// Update is called once per frame
@@ -42,20 +48,58 @@ public class SwordGamePlayer : MonoBehaviour {
 		case AttackDirection.Left:
 			foreach(var enemy in leftSlashArea.GetIntersectingEnemies())
 			{
-				Destroy(enemy.gameObject);
+				KillEnemy(enemy);
 			}
-			leftSlashArea.AllEnemiesDestroyed();
 			break;
 		case AttackDirection.Right:
 			foreach(var enemy in rightSlashArea.GetIntersectingEnemies())
 			{
-				Destroy(enemy.gameObject);
-				rightSlashArea.AllEnemiesDestroyed();
+				KillEnemy(enemy);
 			}
 			break;
 		default:
 			Debug.LogError("Unexpected direction:" + direction.ToString());
 			break;
 		}
+
+		Cleanup();
+	}
+
+	void Cleanup()
+	{
+		foreach(var enemy in toBeRemoved)
+		{
+			leftSlashArea.RemoveEnemy(enemy);
+			rightSlashArea.RemoveEnemy(enemy);
+		}
+
+		toBeRemoved.Clear();
+	}
+
+	void KillEnemy (SwordGameEnemy enemy)
+	{
+		toBeRemoved.Add(enemy);
+		swordGame.Score += enemy.pointsValue;
+		Destroy(enemy.gameObject);
+	}
+
+	void OnTriggerEnter(Collider collider)
+	{
+		SwordGameEnemy enemy = collider.GetComponent<SwordGameEnemy>();
+		if (enemy)
+		{
+			EnemyHitPlayer(enemy);
+		}
+	}
+
+	void EnemyHitPlayer(SwordGameEnemy enemy)
+	{
+		Debug.Log("Hit by enemy:" + enemy.name);
+		// remove enemy from both slash areas
+		leftSlashArea.RemoveEnemy(enemy);
+		rightSlashArea.RemoveEnemy(enemy);
+
+		swordGame.Score += onPlayerHitScore;
+		Destroy(enemy.gameObject);
 	}
 }

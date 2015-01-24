@@ -41,8 +41,11 @@ public class SwordGameSlashArea : MonoBehaviour {
 		}
 	}
 
-	public void AllEnemiesDestroyed()
+	public void RemoveEnemy(SwordGameEnemy enemy)
 	{
-		enemies.Clear();
+		if(enemies.Contains(enemy))
+		{
+			enemies.Remove(enemy);
+		}
 	}
 }
