@@ -30,7 +30,18 @@ public class CatcherPlayer : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		game.Score++;
+		FallingTarget target = other.GetComponent<FallingTarget>();
+		switch (target.targetType) {
+		case FallingTarget.TargetType.ShouldCatch:
+			game.Score++;
+			break;
+		case FallingTarget.TargetType.ShouldNotCatch:
+			game.Score--;
+			break;
+		case FallingTarget.TargetType.Bomb:
+			game.Score++;
+			break;
+		}
 		other.gameObject.SetActive(false);
 		Destroy(other.gameObject);
 	}

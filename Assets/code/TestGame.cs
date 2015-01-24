@@ -6,6 +6,8 @@ public class TestGame : MinigameBase {
 	public string button1 = "Fire3";
 	public string button2 = "Jump";
 
+	public bool loggingEnabled = false;
+
 	// Use this for initialization
 	void Start () {
 	}
@@ -20,10 +22,14 @@ public class TestGame : MinigameBase {
 	}
 
 	public override void onGoodEvent(int magnitude) {
-		print(gameObject.name + " onGoodEvent mag:" + magnitude);
+		if(loggingEnabled) {
+			print(gameObject.name + " onGoodEvent mag:" + magnitude);
+		}
 	}
 
 	public override void onBadEvent(int magnitude) {
-		print(gameObject.name + " onBadEvent mag:" + magnitude);
+		if(loggingEnabled) {
+			print(gameObject.name + " onBadEvent mag:" + magnitude);
+		}
 	}
 }
