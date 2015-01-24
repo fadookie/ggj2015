@@ -77,7 +77,7 @@ public class RunnerGamePlayer : MonoBehaviour {
 		{
 			if (input.GetButton(game.PlayerIdx, InputManager.Button.Right))
 			{
-				tmpGravity *= 5.0f;
+				tmpGravity *= 3.5f;
 			}
 		}
 		if (!onTheGround)

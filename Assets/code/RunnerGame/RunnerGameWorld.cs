@@ -64,7 +64,7 @@ public class RunnerGameWorld : MonoBehaviour {
 		}
 		if (lastPos <= activeArea)
 		{
-			SpawnNewBuilding(new Vector3(lastPos + scale + Random.Range(6.0f, 8.5f), Random.Range(-2.2f, 2.2f), 0f));
+			SpawnNewBuilding(new Vector3(lastPos + scale + Random.Range(6.0f, 8.5f), Random.Range(-3.2f, 1.5f), 0f));
 		}
 
 		{
