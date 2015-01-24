@@ -13,7 +13,10 @@ public class SwordGamePlayer : MonoBehaviour {
 	public float minTimeBetweenAttacks = 0.5f;
 	public float stepDistance = 0.2f;
 	public float maxDistance = 1.0f;
+	public float powerAttackThreshold = 1.0f;
+	public float maxChargeTime = 3.0f;
 	float timeSinceLastAttack;
+	float chargeTime = 0;
 
 	List<SwordGameEnemy> toBeRemoved;
 
@@ -33,35 +36,50 @@ public class SwordGamePlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timeSinceLastAttack += Time.deltaTime;
-
+		float direction = 0;
+		
 		InputManager input = Services.instance.Get<InputManager>();
 		if (input != null) {
-			float direction = 0;
 			if(input.GetButton(swordGame.PlayerIdx, InputManager.Button.Left)) {
 				direction = -1;
 			} else if (input.GetButton(swordGame.PlayerIdx, InputManager.Button.Right)) {
 				direction = 1;
 			}
 
-			if (direction > 0f && !(prevDirection > 0f))
+			if (direction > 0f)
 			{
 				if (timeSinceLastAttack >= minTimeBetweenAttacks)
 				{
-					Attack (AttackDirection.Right);
-					timeSinceLastAttack = 0.0f;
+					chargeTime += Time.deltaTime;
 				}
 			}
-			if (direction < 0f && !(prevDirection < 0f))
+			if (direction < 0f)
 			{
 				if (timeSinceLastAttack >= minTimeBetweenAttacks)
 				{
-					Attack (AttackDirection.Left);
-					timeSinceLastAttack = 0.0f;
+					chargeTime += Time.deltaTime;
 				}
 			}
-			prevDirection = direction;
+
 		}
 
+		if(direction == 0f && prevDirection != 0f)
+		{
+			if (timeSinceLastAttack >= minTimeBetweenAttacks)
+			{
+				if (chargeTime >= powerAttackThreshold)
+				{
+					PowerAttack();
+				}
+				else
+				{
+					Attack (direction > 0 ? AttackDirection.Right : AttackDirection.Left);
+				}
+				chargeTime = 0.0f;
+				timeSinceLastAttack = 0.0f;
+			}
+		}
+		prevDirection = direction;
 		UpdateGraphics();
 
 	}
@@ -103,6 +121,20 @@ public class SwordGamePlayer : MonoBehaviour {
 
 		Move(direction);
 		Cleanup();
+	}
+
+	void PowerAttack()
+	{
+		print("Power attack!");
+		foreach(var enemy in leftSlashArea.GetIntersectingEnemies())
+		{
+			KillEnemy(enemy);
+		}
+		foreach(var enemy in rightSlashArea.GetIntersectingEnemies())
+		{
+			KillEnemy(enemy);
+		}
+		Cleanup ();
 	}
 
 	void Move (AttackDirection direction)

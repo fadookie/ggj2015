@@ -124,8 +124,10 @@ MonoBehaviour:
   graphics: {fileID: 599945615}
   onPlayerHitScore: -1
   minTimeBetweenAttacks: .5
-  stepDistance: .200000003
+  stepDistance: 0
   maxDistance: 1.60000002
+  powerAttackThreshold: 1
+  maxChargeTime: 3
 --- !u!54 &278302368
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,7 +229,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
