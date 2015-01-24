@@ -5,7 +5,7 @@ public class RunnerGame : MinigameBase {
 
 	// Use this for initialization
 	void Start () {
-	
+		Services.instance.Set<RunnerGame>(this);
 	}
 	
 	// Update is called once per frame

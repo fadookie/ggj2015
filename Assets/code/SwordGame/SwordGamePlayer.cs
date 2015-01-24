@@ -34,24 +34,33 @@ public class SwordGamePlayer : MonoBehaviour {
 	void Update () {
 		timeSinceLastAttack += Time.deltaTime;
 
-		float direction = Input.GetAxis("Horizontal");
-		if (direction > 0f && !(prevDirection > 0f))
-		{
-			if (timeSinceLastAttack >= minTimeBetweenAttacks)
-			{
-				Attack (AttackDirection.Right);
-				timeSinceLastAttack = 0.0f;
+		InputManager input = Services.instance.Get<InputManager>();
+		if (input != null) {
+			float direction = 0;
+			if(input.GetButton(swordGame.PlayerIdx, InputManager.Button.Left)) {
+				direction = -1;
+			} else if (input.GetButton(swordGame.PlayerIdx, InputManager.Button.Right)) {
+				direction = 1;
 			}
-		}
-		if (direction < 0f && !(prevDirection < 0f))
-		{
-			if (timeSinceLastAttack >= minTimeBetweenAttacks)
+
+			if (direction > 0f && !(prevDirection > 0f))
 			{
-				Attack (AttackDirection.Left);
-				timeSinceLastAttack = 0.0f;
+				if (timeSinceLastAttack >= minTimeBetweenAttacks)
+				{
+					Attack (AttackDirection.Right);
+					timeSinceLastAttack = 0.0f;
+				}
 			}
+			if (direction < 0f && !(prevDirection < 0f))
+			{
+				if (timeSinceLastAttack >= minTimeBetweenAttacks)
+				{
+					Attack (AttackDirection.Left);
+					timeSinceLastAttack = 0.0f;
+				}
+			}
+			prevDirection = direction;
 		}
-		prevDirection = direction;
 
 		UpdateGraphics();
 

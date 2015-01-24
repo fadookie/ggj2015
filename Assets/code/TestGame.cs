@@ -3,9 +3,6 @@ using System.Collections;
 
 public class TestGame : MinigameBase {
 
-	public string button1 = "Fire3";
-	public string button2 = "Jump";
-
 	public bool loggingEnabled = false;
 
 	// Use this for initialization
@@ -14,10 +11,13 @@ public class TestGame : MinigameBase {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown(button1)) {
-			++Score;
-		} else if (Input.GetButtonDown(button2)) {
-			--Score;
+		InputManager input = Services.instance.Get<InputManager>();
+		if (input != null) {
+			if(input.GetButton(PlayerIdx, InputManager.Button.Left)) {
+				++Score;
+			} else if (input.GetButton(PlayerIdx, InputManager.Button.Left)) {
+				--Score;
+			}
 		}
 	}
 
