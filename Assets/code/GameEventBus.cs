@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿//#define SEND_EVENTS_ON_SCORE_CHANGE
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-
-//#define SEND_EVENTS_ON_SCORE_CHANGE
 
 public class GameEventBus : MonoBehaviour {
 	public string[] gameNames;
@@ -103,16 +103,21 @@ public class GameEventBus : MonoBehaviour {
 	void subscribeToGame(MinigameBase game) {
 		game.onScoreIncrease += onScoreIncrease;
 		game.onScoreDecrease += onScoreDecrease;
-		game.onComboEventPassed += onComboEvent;
+		game.onComboEventPassed += onComboEventPassed;
+		game.onComboEventFailed += onComboEventFailed;
 	}
 
-	void onComboEvent(MinigameBase sender, Combo combo) {
+	void onComboEventPassed(MinigameBase sender, Combo combo) {
 		//Only pass combo events forward, don't wrap back to 1st game
 		int gameIdx = games.IndexOf(sender);
 		int nextGameIdx = gameIdx + 1;
 		if (nextGameIdx < games.Count) {
 			games[nextGameIdx].onCombo(combo);
 		}
+	}
+
+	void onComboEventFailed(MinigameBase sender, Combo combo) {
+		print(string.Format("GameEventBus::onComboEventFailed: {0} from {1}", combo, sender.gameObject.name));
 	}
 
 	void onScoreIncrease(MinigameBase sender, int delta) {
