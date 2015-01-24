@@ -13,9 +13,9 @@ public class TestGame : MinigameBase {
 	void Update () {
 		InputManager input = Services.instance.Get<InputManager>();
 		if (input != null) {
-			if(input.GetButton(PlayerIdx, InputManager.Button.Left)) {
+			if(input.GetButtonDown(PlayerIdx, InputManager.Button.Left)) {
 				++Score;
-			} else if (input.GetButton(PlayerIdx, InputManager.Button.Left)) {
+			} else if (input.GetButtonDown(PlayerIdx, InputManager.Button.Right)) {
 				--Score;
 			}
 		}

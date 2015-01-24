@@ -9,9 +9,12 @@ public class TargetSpawner : MonoBehaviour {
 	
 	float lastSpawnTimeS = -1;
 	public float spawnDelayS = 5;
+
+	CatcherGame game;
 	
 	// Use this for initialization
 	void Start () {
+		game = Services.instance.Get<CatcherGame>();
 		spawnArea = GetComponent<BoxCollider>();
 		spawnArea.enabled = false; //We don't need this to test for any collisions, just to show visual bounds info in the editor.
 		maxSpawnPos = new Vector2(spawnArea.size.x / 2, spawnArea.size.y / 2);
@@ -23,7 +26,7 @@ public class TargetSpawner : MonoBehaviour {
 		if (lastSpawnTimeS < 0) {
 			lastSpawnTimeS = Time.time;
 			spawnTargetOfType(FallingTarget.TargetType.ShouldCatch);
-		} else if (lastSpawnTimeS >= 0 && Time.time - lastSpawnTimeS > spawnDelayS) {
+		} else if (lastSpawnTimeS >= 0 && Time.time - lastSpawnTimeS > spawnDelayS / game.TargetTimeScale) {
 			lastSpawnTimeS = -1;
 		}
 	}
