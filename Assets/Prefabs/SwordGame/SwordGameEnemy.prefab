@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a587d949282c1433894c17c91e1532b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  graphics: {fileID: 477630}
   swordGame: {fileID: 0}
   velocity: 3
   pointsValue: 1

@@ -121,7 +121,11 @@ MonoBehaviour:
   swordGame: {fileID: 930056548}
   leftSlashArea: {fileID: 862826601}
   rightSlashArea: {fileID: 1491155403}
+  graphics: {fileID: 599945615}
   onPlayerHitScore: -1
+  minTimeBetweenAttacks: .5
+  stepDistance: .200000003
+  maxDistance: 1.60000002
 --- !u!54 &278302368
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -645,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 278302367}
+  spawner: {fileID: 831022944}
   scoreLabel: {fileID: 1519413306}
 --- !u!1 &1312120525
 GameObject:

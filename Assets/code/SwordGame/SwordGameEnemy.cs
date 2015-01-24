@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SwordGameEnemy : MonoBehaviour {
 
+	public Transform graphics;
 	public SwordGame swordGame;
 	public float velocity = 1f;
 	public int pointsValue = 1;

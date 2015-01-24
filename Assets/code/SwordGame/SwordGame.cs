@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SwordGame : MinigameBase {
 
 	public SwordGamePlayer player;
+	public SwordGameEnemySpawner spawner;
 	public Text scoreLabel;
 
 	// Use this for initialization
@@ -18,10 +19,10 @@ public class SwordGame : MinigameBase {
 	}
 
 	public override void onGoodEvent(int magnitude) {
-		
+		print ("good");
 	}
 	
 	public override void onBadEvent(int magnitude) {
-		
+		spawner.SpawnBadEnemy();
 	}
 }

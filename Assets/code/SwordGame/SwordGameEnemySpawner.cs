@@ -21,11 +21,11 @@ public class SwordGameEnemySpawner : MonoBehaviour {
 		if (timeForNextSpawn <= 0)
 		{
 			timeForNextSpawn += spawnInterval;
-			SpawnEnemies();
+			SpawnEnemy();
 		}
 	}
 
-	void SpawnEnemies()
+	SwordGameEnemy SpawnEnemy()
 	{
 		Transform instance = Instantiate (enemyPrefab, new Vector3(0f,0f, 10e10f), Quaternion.identity) as Transform;
 		instance.parent = transform;
@@ -41,6 +41,15 @@ public class SwordGameEnemySpawner : MonoBehaviour {
 
 		SwordGameEnemy enemy = instance.GetComponent<SwordGameEnemy>();
 		enemy.swordGame = swordGame;
+
+		return enemy;
+	}
+
+	public void SpawnBadEnemy()
+	{
+		SwordGameEnemy enemy = SpawnEnemy();
+		enemy.graphics.renderer.material.color = new Color(1f, 0f, 0f);
+		enemy.velocity += 1.0f;
 	}
 	
 }

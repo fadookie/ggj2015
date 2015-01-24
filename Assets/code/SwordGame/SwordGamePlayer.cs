@@ -7,8 +7,13 @@ public class SwordGamePlayer : MonoBehaviour {
 	public SwordGame swordGame;
 	public SwordGameSlashArea leftSlashArea;
 	public SwordGameSlashArea rightSlashArea;
+	public Transform graphics;
 
 	public int onPlayerHitScore = -1;
+	public float minTimeBetweenAttacks = 0.5f;
+	public float stepDistance = 0.2f;
+	public float maxDistance = 1.0f;
+	float timeSinceLastAttack;
 
 	List<SwordGameEnemy> toBeRemoved;
 
@@ -22,21 +27,46 @@ public class SwordGamePlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		toBeRemoved = new List<SwordGameEnemy>();
+		timeSinceLastAttack = minTimeBetweenAttacks;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		timeSinceLastAttack += Time.deltaTime;
+
 		float direction = Input.GetAxis("Horizontal");
 		if (direction > 0f && !(prevDirection > 0f))
 		{
-			Attack (AttackDirection.Right);
+			if (timeSinceLastAttack >= minTimeBetweenAttacks)
+			{
+				Attack (AttackDirection.Right);
+				timeSinceLastAttack = 0.0f;
+			}
 		}
 		if (direction < 0f && !(prevDirection < 0f))
 		{
-			Attack (AttackDirection.Left);
+			if (timeSinceLastAttack >= minTimeBetweenAttacks)
+			{
+				Attack (AttackDirection.Left);
+				timeSinceLastAttack = 0.0f;
+			}
 		}
 		prevDirection = direction;
 
+		UpdateGraphics();
+
+	}
+
+	void UpdateGraphics()
+	{
+		if (timeSinceLastAttack < minTimeBetweenAttacks)
+		{
+			graphics.renderer.material.color = new Color(1f, 1f, 0f);
+		}
+		else
+		{
+			graphics.renderer.material.color = new Color(0f, 1f, 0f);
+		}
 	}
 
 	void Attack(AttackDirection direction)
@@ -61,9 +91,19 @@ public class SwordGamePlayer : MonoBehaviour {
 			break;
 		}
 
+
+		Move(direction);
 		Cleanup();
 	}
 
+	void Move (AttackDirection direction)
+	{
+		Vector3 pos = transform.localPosition;
+		pos.x += direction == AttackDirection.Right ? stepDistance : -stepDistance;
+		pos.x = Mathf.Clamp(pos.x, -maxDistance, maxDistance);
+		transform.localPosition = pos;
+	}
+	
 	void Cleanup()
 	{
 		foreach(var enemy in toBeRemoved)
@@ -100,4 +140,5 @@ public class SwordGamePlayer : MonoBehaviour {
 		swordGame.Score += onPlayerHitScore;
 		Destroy(enemy.gameObject);
 	}
+
 }
