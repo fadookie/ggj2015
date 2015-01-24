@@ -15,10 +15,8 @@ public class SwordGameEnemy : MonoBehaviour {
 	void Update () 
 	{
 		Vector3 direction = swordGame.player.transform.position - transform.position;
-		if(direction.sqrMagnitude > 1f)
-		{
-			direction.Normalize();
-		}
+
+		direction.Normalize();
 		transform.localPosition += direction * velocity * Time.deltaTime;
 	}
 }

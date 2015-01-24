@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordGame: {fileID: 0}
-  velocity: 1
+  velocity: 3
+  pointsValue: 1
 --- !u!135 &13557596
 SphereCollider:
   m_ObjectHideFlags: 1
