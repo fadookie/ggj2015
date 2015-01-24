@@ -170,4 +170,9 @@ public class RunnerGameWorld : MonoBehaviour {
 		}
 		toBeAdded.Clear();
 	}
+
+	public void Pause()
+	{
+		velocity = 0.0f;
+	}
 }

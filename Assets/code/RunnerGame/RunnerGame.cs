@@ -6,6 +6,7 @@ public class RunnerGame : MinigameBase {
 	public RunnerGamePlayer player;
 	public RunnerGameWorld world;
 
+	bool resetting = false;
 	// Use this for initialization
 	void Start () {
 		Services.instance.Set<RunnerGame>(this);
@@ -30,8 +31,20 @@ public class RunnerGame : MinigameBase {
 
 	public void ResetGame()
 	{
-		Score -= 1;
+		if (!resetting)
+		{
+			Score -= 1;
+			StartCoroutine(ResetGameRoutine());
+		}
+	}
+
+	IEnumerator ResetGameRoutine()
+	{
+		resetting = true;
+		world.Pause();
+		yield return new WaitForSeconds(1.0f);
 		world.ResetGame();
 		player.ResetGame();
+		resetting = false;
 	}
 }

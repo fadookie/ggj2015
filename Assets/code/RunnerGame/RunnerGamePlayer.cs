@@ -72,11 +72,20 @@ public class RunnerGamePlayer : MonoBehaviour {
 #endif
 		}
 
-
+		float tmpGravity = gravity;
+		if (input != null) 
+		{
+			if (input.GetButton(game.PlayerIdx, InputManager.Button.Right))
+			{
+				tmpGravity *= 5.0f;
+			}
+		}
 		if (!onTheGround)
 		{
-			velocity += -gravity * Time.deltaTime;
+			velocity += -tmpGravity * Time.deltaTime;
 		}
+
+
 
 		Vector3 pos = transform.localPosition;
 		pos.y += velocity * Time.deltaTime;
@@ -86,6 +95,8 @@ public class RunnerGamePlayer : MonoBehaviour {
 		{
 			game.ResetGame();
 		}
+
+
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -105,6 +116,10 @@ public class RunnerGamePlayer : MonoBehaviour {
 		{
 			game.Score++;
 			collisionCount++;
+		}
+		else
+		{
+			game.ResetGame();
 		}
 		transform.localPosition = avgPos + avgNormal * 0.49f;
 	} 
