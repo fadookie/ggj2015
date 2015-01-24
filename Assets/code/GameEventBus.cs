@@ -6,6 +6,12 @@ public class GameEventBus : MonoBehaviour {
 	public string[] gameNames;
 	List<MinigameBase> games;
 
+	bool gamesLoaded = false;
+
+	public bool randomizePlayers = false;
+	public float randomizePlayersDelayS = 15;
+	IEnumerator randomizePlayersRoutine = null;
+
 	// Use this for initialization
 	void Start () {
 		if (Services.instance.Get<GameEventBus>() != null) {
@@ -46,6 +52,25 @@ public class GameEventBus : MonoBehaviour {
 			games.Add(game);
 			subscribeToGame(game);
 		}
+		gamesLoaded = true;
+
+		randomizePlayersRoutine = randomizePlayersAfterDelay();
+		StartCoroutine(randomizePlayersRoutine);
+
+	}
+
+	IEnumerator randomizePlayersAfterDelay() {
+		do {
+			yield return new WaitForSeconds(randomizePlayersDelayS);
+			if (randomizePlayers && gamesLoaded) {
+				games.Shuffle();
+				for (int i = 0; i < games.Count; ++i) {
+					MinigameBase game = games[i];
+					game.PlayerIdx = i;
+				}
+				print(string.Format("Games shuffled! new order = {0}", games.toString()));
+			}
+		} while(true);
 	}
 
 	void subscribeToGame(MinigameBase game) {

@@ -32,4 +32,10 @@ public class TestGame : MinigameBase {
 			print(gameObject.name + " onBadEvent mag:" + magnitude);
 		}
 	}
+
+	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
+		if(loggingEnabled) {
+			print(gameObject.name + " onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
+		}
+	}
 }

@@ -20,4 +20,8 @@ public class RunnerGame : MinigameBase {
 	public override void onBadEvent(int magnitude) {
 		print ("RunnerGame::Bad");
 	}
+
+	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
+		print("RunnerGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
+	}
 }

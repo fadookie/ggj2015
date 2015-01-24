@@ -26,8 +26,22 @@ public abstract class MinigameBase : MonoBehaviour {
 		}
 	}
 
+	int _playerIdx;
+	public int PlayerIdx {
+		get {
+			return _playerIdx;
+		}
+		set {
+			int oldIdx = _playerIdx;
+			_playerIdx = value;
+			onPlayerIdxChange(oldIdx, value);
+		}
+	}
+
 	#region Respond callback
 	public abstract void onGoodEvent(int magnitude);
 	public abstract void onBadEvent(int magnitude);
+
+	public abstract void onPlayerIdxChange(int oldIdx, int newIdx);
 	#endregion
 }

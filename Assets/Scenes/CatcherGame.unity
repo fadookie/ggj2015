@@ -505,6 +505,8 @@ MonoBehaviour:
   gameNames:
   - TestGame0
   - CatcherGame
+  randomizePlayers: 0
+  randomizePlayersDelayS: 15
 --- !u!4 &1098738029
 Transform:
   m_ObjectHideFlags: 0
