@@ -47,10 +47,6 @@ public class RunnerGamePlayer : MonoBehaviour {
 					rigidbody.velocity = new Vector3(0f, jumpBoost, 0f);
 					framesNoCollision = FRAMES_NO_COLLISION_CONSIDERED_VALID;
 				}
-				else
-				{
-					Debug.Log("Could not jump: framesNoCollision: " + framesNoCollision);
-				}
 			}
 
 #if true
