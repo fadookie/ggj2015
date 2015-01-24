@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CatcherGame : MinigameBase {
 
-	float TargetTimeScaleDefault;
-	public float TargetTimeScale = 1f; //{ get; private set; }
+	float TargetTimeScaleDefault = 1f;
+	public float TargetTimeScale {
+		get {
+			return Mathf.Clamp(TargetTimeScaleDefault + timeScaleBad + timeScaleGood, TargetTimeScaleMin, TargetTimeScaleMax);
+		}
+	}
 	public float TargetTimeScaleMin = 0.6f;
 	public float TargetTimeScaleMax = 2f;
 
@@ -12,39 +17,46 @@ public class CatcherGame : MinigameBase {
 	public float TimeScaleAdjustOnBad = 0.05f;
 
 	public float TimeScaleEffectDurationS = 2f;
-	float timeScaleEffectElapsed = -1f;
+	float timeScaleBad;
+	float timeScaleGood;
+	float timeScaleBadEffectElapsed = -1f;
+	float timeScaleGoodEffectElapsed = -1f;
+
+	public Text scoreLabel;
 
 	// Use this for initialization
 	void Start () {
 		Services.instance.Set<CatcherGame>(this);
-		TargetTimeScaleDefault = TargetTimeScale;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (timeScaleEffectElapsed >= 0) {
-			timeScaleEffectElapsed += Time.deltaTime;
-			if (timeScaleEffectElapsed > TimeScaleEffectDurationS) {
-				TargetTimeScale = TargetTimeScaleDefault;
-				timeScaleEffectElapsed = -1f;
+		scoreLabel.text = string.Format("Score: {0}", Score);
+
+		if (timeScaleBadEffectElapsed >= 0) {
+			timeScaleBadEffectElapsed += Time.deltaTime;
+			if (timeScaleBadEffectElapsed > TimeScaleEffectDurationS) {
+				timeScaleBad = 0;
+				timeScaleBadEffectElapsed = -1f;
+			}
+			if (timeScaleGoodEffectElapsed > TimeScaleEffectDurationS) {
+				timeScaleGood = 0;
+				timeScaleGoodEffectElapsed = -1f;
 			}
 		}
 	}
 
-	void adjustTargetTimeScale(float deltaS) {
-		TargetTimeScale = Mathf.Clamp(TargetTimeScale + deltaS, TargetTimeScaleMin, TargetTimeScaleMax);
-		timeScaleEffectElapsed = 0f;
-	}
-
 	public override void onGoodEvent(int magnitude) {
 		print(gameObject.name + " onGoodEvent mag:" + magnitude);
-		adjustTargetTimeScale(TimeScaleAdjustOnGood * Mathf.Abs(magnitude));
+		timeScaleGood += TimeScaleAdjustOnGood *  Mathf.Abs(magnitude);
+		timeScaleGoodEffectElapsed = 0f;
 	}
 
 	public override void onBadEvent(int magnitude) {
 		print(gameObject.name + " onBadEvent mag:" + magnitude);
 		Services.instance.Get<TargetSpawner>().spawnTargetOfType(FallingTarget.TargetType.ShouldNotCatch);
-		adjustTargetTimeScale(TimeScaleAdjustOnBad *  Mathf.Abs(magnitude));
+		timeScaleBad += TimeScaleAdjustOnBad *  Mathf.Abs(magnitude);
+		timeScaleBadEffectElapsed = 0f;
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {

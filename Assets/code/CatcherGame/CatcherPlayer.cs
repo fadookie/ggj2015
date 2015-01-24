@@ -19,10 +19,11 @@ public class CatcherPlayer : MonoBehaviour {
 		InputManager input = Services.instance.Get<InputManager>();
 		if (input != null) {
 			Vector3 newPos = transform.localPosition;
+			float targetTimeScale = Mathf.Clamp(game.TargetTimeScale, 1f, 2.5f);
 			if (input.GetButton(game.PlayerIdx, InputManager.Button.Left)) {
-				newPos.x -= moveVel * Time.deltaTime; 
+				newPos.x -= moveVel * Time.deltaTime * targetTimeScale; 
 			} else if (input.GetButton(game.PlayerIdx, InputManager.Button.Right)) {
-				newPos.x += moveVel * Time.deltaTime; 
+				newPos.x += moveVel * Time.deltaTime * targetTimeScale; 
 			}
 			newPos.x = Mathf.Clamp(newPos.x, xMin.transform.localPosition.x, xMax.transform.localPosition.x);
 			transform.localPosition = newPos; 
