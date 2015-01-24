@@ -41,7 +41,6 @@ public class SwordGamePlayer : MonoBehaviour {
 
 	void Attack(AttackDirection direction)
 	{
-		Debug.Log("Attacking in direction:" + direction.ToString());
 
 		switch(direction)
 		{
@@ -94,7 +93,6 @@ public class SwordGamePlayer : MonoBehaviour {
 
 	void EnemyHitPlayer(SwordGameEnemy enemy)
 	{
-		Debug.Log("Hit by enemy:" + enemy.name);
 		// remove enemy from both slash areas
 		leftSlashArea.RemoveEnemy(enemy);
 		rightSlashArea.RemoveEnemy(enemy);

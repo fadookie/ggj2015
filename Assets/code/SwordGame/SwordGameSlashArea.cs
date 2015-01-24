@@ -26,7 +26,6 @@ public class SwordGameSlashArea : MonoBehaviour {
 		SwordGameEnemy enemy = collider.GetComponent<SwordGameEnemy>();
 		if (enemy)
 		{
-			Debug.Log("Enemy entered the collision area!");
 			enemies.Add(enemy);
 		}
 	}
@@ -36,7 +35,6 @@ public class SwordGameSlashArea : MonoBehaviour {
 		SwordGameEnemy enemy = collider.GetComponent<SwordGameEnemy>();
 		if (enemy)
 		{
-			Debug.Log("Enemy left the collision area!");
 			enemies.Remove(enemy);
 		}
 	}
