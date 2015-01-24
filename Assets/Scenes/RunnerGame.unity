@@ -715,7 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -992,7 +991,7 @@ MonoBehaviour:
   largeBuildings:
   - {fileID: 401140, guid: eb45b390d27944a21863342ea349c958, type: 2}
   - {fileID: 445404, guid: 102efdc4f668f41948fa1d2b85eb4b05, type: 2}
-  velocity: 2
+  initialVelocity: 3
   velocityIncrease: .100000001
   activeArea: 30
 --- !u!1 &1670938425
@@ -1131,6 +1130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0a992e9d81ee4b1fbd2932bf025d0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 1923029113}
   jumpBoostTime: .800000012
   jumpBoost: 5
 --- !u!54 &1916062795
@@ -1206,6 +1206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb2c9e69faaa4e30af630a8bce710ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1916062794}
+  world: {fileID: 1646221685}
 --- !u!1 &2118050348
 GameObject:
   m_ObjectHideFlags: 0

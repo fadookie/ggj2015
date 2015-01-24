@@ -6,10 +6,11 @@ public class RunnerGameWorld : MonoBehaviour {
 
 	public Transform startBuilding;
 	public Transform[] largeBuildings;
-	public float velocity = 1.0f;
+	public float initialVelocity = 1.0f;
 	public float velocityIncrease = 0.1f;
 	public float activeArea = 10.0f;
 
+	float velocity;
 
 	List<Transform> activeBuildings;
 	List<Transform> toBeDeleted;
@@ -20,16 +21,7 @@ public class RunnerGameWorld : MonoBehaviour {
 		toBeDeleted = new List<Transform>();
 		toBeAdded = new List<Transform>();
 
-		SpawnNewBuilding(new Vector3(10f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(15f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(20f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(25f, -1f, 0f));
-
-		foreach(var building in toBeAdded)
-		{
-			activeBuildings.Add(building);
-		}
-		toBeAdded.Clear();
+		ResetGame();
 	}
 	
 	// Update is called once per frame
@@ -63,7 +55,6 @@ public class RunnerGameWorld : MonoBehaviour {
 			SpawnNewBuilding(new Vector3(lastPos + Random.Range(5.0f, 6.5f), Random.Range(-1f, 1f), 0f));
 		}
 
-
 		{
 			Vector3 pos = startBuilding.localPosition;
 			pos.x -= velocity * Time.deltaTime;
@@ -91,5 +82,32 @@ public class RunnerGameWorld : MonoBehaviour {
 		transform.parent = this.transform;
 		transform.localPosition = spawnPos;
 		toBeAdded.Add(transform);
+	}
+
+	public void ResetGame()
+	{
+		velocity = initialVelocity;
+		// remove all active buildings
+		foreach(var building in activeBuildings)
+		{
+			Destroy (building.gameObject);
+		}
+		activeBuildings.Clear();
+
+		Vector3 startPos = startBuilding.transform.localPosition;
+		startPos.x = 0f;
+		startBuilding.transform.localPosition = startPos;
+
+
+		SpawnNewBuilding(new Vector3(10f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(15f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(20f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(25f, -1f, 0f));
+		
+		foreach(var building in toBeAdded)
+		{
+			activeBuildings.Add(building);
+		}
+		toBeAdded.Clear();
 	}
 }

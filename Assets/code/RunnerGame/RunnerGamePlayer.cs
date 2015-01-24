@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class RunnerGamePlayer : MonoBehaviour {
-
+	public RunnerGame game;
 	const int FRAMES_NO_COLLISION_CONSIDERED_VALID = 4;
+
 	public float jumpBoostTime = 0.5f;
 	public float jumpBoost = 10.0f;
 
@@ -12,9 +13,7 @@ public class RunnerGamePlayer : MonoBehaviour {
 
 	bool onTheGround = false;
 	float currentJumpBoost = 0;
-
-	RunnerGame game;
-
+	
 	// Use this for initialization
 	void Start () {
 		currentJumpBoost = jumpBoostTime;
@@ -73,6 +72,11 @@ public class RunnerGamePlayer : MonoBehaviour {
 			}
 #endif
 		}
+
+		if (transform.localPosition.y < -6f)
+		{
+			game.ResetGame();
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)
@@ -83,5 +87,10 @@ public class RunnerGamePlayer : MonoBehaviour {
 	void OnCollisionExit(Collision collision)
 	{
 		collisionCount--;
+	}
+
+	public void ResetGame()
+	{
+		transform.localPosition = Vector3.zero;
 	}
 }
