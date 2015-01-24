@@ -17,9 +17,9 @@ public abstract class MinigameBase : MonoBehaviour {
 			int delta = value - _score;
 			_score = value;
 			if (onScoreIncrease != null) {
-				if(value > 0) {
+				if(delta > 0) {
 					onScoreIncrease(this, delta);
-				} else if (value < 0) {
+				} else if (delta < 0) {
 					onScoreDecrease(this, delta);
 				}
 			}
