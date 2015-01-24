@@ -81,6 +81,7 @@ public class RunnerGamePlayer : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
+		game.Score++;
 		collisionCount++;
 	}
 

@@ -13,15 +13,15 @@ public class RunnerGame : MinigameBase {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
 	public override void onGoodEvent(int magnitude) {
-		print ("RunnerGame::Good");
+		world.awesomeness = Mathf.Clamp((float)world.awesomeness+1.0f, 0f, 10f);
 	}
 	
 	public override void onBadEvent(int magnitude) {
-		print ("RunnerGame::Bad");
+		world.awesomeness = Mathf.Clamp((float)world.awesomeness-1.0f, 0f, 10f);
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
@@ -30,6 +30,7 @@ public class RunnerGame : MinigameBase {
 
 	public void ResetGame()
 	{
+		Score -= 1;
 		world.ResetGame();
 		player.ResetGame();
 	}
