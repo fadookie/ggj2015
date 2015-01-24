@@ -5,6 +5,9 @@ public class RunnerGame : MinigameBase {
 
 	public RunnerGamePlayer player;
 	public RunnerGameWorld world;
+	public RunnerGamePowerupSpawner powerupSpawner;
+
+	Combo? activeCombo;
 
 	bool resetting = false;
 	// Use this for initialization
@@ -27,6 +30,8 @@ public class RunnerGame : MinigameBase {
 
 	public override void onCombo(Combo combo) {
 		print("RunnerGame::onComboEvent: " + combo);
+		activeCombo = combo;
+		powerupSpawner.SpawnPowerups(combo);
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
@@ -35,6 +40,7 @@ public class RunnerGame : MinigameBase {
 
 	public void ResetGame()
 	{
+		activeCombo = null;
 		if (!resetting)
 		{
 			Score -= 1;
@@ -51,4 +57,17 @@ public class RunnerGame : MinigameBase {
 		player.ResetGame();
 		resetting = false;
 	}
+
+	public void onShapeCaught(Combo.Shape caughtShape) {
+		if (activeCombo.HasValue) {
+			if (activeCombo.Value.shape.Equals(caughtShape)) {
+				postComboEventPassed(activeCombo.Value);
+			} else {
+				//Combo failed!
+				postComboEventFailed(activeCombo.Value);
+				activeCombo = null;
+			}
+		}
+	}
+
 }

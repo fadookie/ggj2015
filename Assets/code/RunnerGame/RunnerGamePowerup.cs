@@ -3,6 +3,7 @@ using System.Collections;
 
 public class RunnerGamePowerup : MonoBehaviour {
 
+	public Combo.Shape shape;
 	public RunnerGameWorld world;
 	float rotation = 0;
 	// Use this for initialization
@@ -17,14 +18,14 @@ public class RunnerGamePowerup : MonoBehaviour {
 		transform.localPosition = pos;
 
 		rotation += 20f * Time.deltaTime;
-		transform.rotation = Quaternion.Euler(0f, rotation, 0f);
+		transform.rotation = Quaternion.Euler(rotation, 0f, 0f);
 	}
 
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.name == "Player")
 		{
-			Debug.Log("player picked up powerup!");
+			Services.instance.Get<RunnerGame>().onShapeCaught(shape);
 			Destroy(this.gameObject);
 		}
 	}

@@ -169,6 +169,12 @@ public class RunnerGameWorld : MonoBehaviour {
 			activeBuildings.Add(building);
 		}
 		toBeAdded.Clear();
+
+		foreach(var obj in FindObjectsOfType(typeof(RunnerGamePowerup)))
+		{
+			RunnerGamePowerup powerup = obj as RunnerGamePowerup;
+			Destroy (powerup.gameObject);
+		}
 	}
 
 	public void Pause()
