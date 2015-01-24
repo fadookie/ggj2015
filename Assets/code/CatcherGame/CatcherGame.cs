@@ -1,23 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TestGame : MinigameBase {
-
-	public string button1 = "Fire3";
-	public string button2 = "Jump";
+public class CatcherGame : MinigameBase {
 
 	// Use this for initialization
 	void Start () {
+		Services.instance.Set<CatcherGame>(this);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetButtonDown(button1)) {
-			++Score;
-		} else if (Input.GetButtonDown(button2)) {
-			--Score;
-		}
-	}
+//	void Update () {
+//	}
 
 	public override void onGoodEvent(int magnitude) {
 		print(gameObject.name + " onGoodEvent mag:" + magnitude);

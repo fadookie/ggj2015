@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Catcher : MinigameBase {
+public class CatcherPlayer : MonoBehaviour {
 
 	public string leftButton = "Fire1";
 	public string rightButton = "Fire3";
@@ -10,9 +10,11 @@ public class Catcher : MinigameBase {
 	public GameObject xMin;
 	public GameObject xMax;
 
+	CatcherGame game;
+
 	// Use this for initialization
 	void Start () {
-	
+		game = Services.instance.Get<CatcherGame>();
 	}
 	
 	// Update is called once per frame
@@ -27,11 +29,9 @@ public class Catcher : MinigameBase {
 		transform.localPosition = newPos; 
 	}
 
-	public override void onGoodEvent(int magnitude) {
-		print(gameObject.name + " onGoodEvent mag:" + magnitude);
-	}
-
-	public override void onBadEvent(int magnitude) {
-		print(gameObject.name + " onBadEvent mag:" + magnitude);
+	void OnTriggerEnter(Collider other) {
+		game.Score++;
+		other.gameObject.SetActive(false);
+		Destroy(other.gameObject);
 	}
 }
