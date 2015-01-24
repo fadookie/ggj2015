@@ -21,24 +21,28 @@ public class SwordGameSlashArea : MonoBehaviour {
 		return enemies;
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collider)
 	{
-		Collider collider = collision.collider;
 		SwordGameEnemy enemy = collider.GetComponent<SwordGameEnemy>();
 		if (enemy)
 		{
-			Debug.Log("Enemy entered the collision area!");
 			enemies.Add(enemy);
 		}
 	}
 
-	void OnCollisionExit(Collision collision)
+	void OnTriggerExit(Collider collider)
 	{
-		Collider collider = collision.collider;
 		SwordGameEnemy enemy = collider.GetComponent<SwordGameEnemy>();
 		if (enemy)
 		{
-			Debug.Log("Enemy left the collision area!");
+			enemies.Remove(enemy);
+		}
+	}
+
+	public void RemoveEnemy(SwordGameEnemy enemy)
+	{
+		if(enemies.Contains(enemy))
+		{
 			enemies.Remove(enemy);
 		}
 	}

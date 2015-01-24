@@ -5,6 +5,7 @@ public class SwordGameEnemy : MonoBehaviour {
 
 	public SwordGame swordGame;
 	public float velocity = 1f;
+	public int pointsValue = 1;
 	// Use this for initialization
 	void Start () {
 	
