@@ -4,8 +4,18 @@ using System.Collections.Generic;
 
 public class RunnerGameWorld : MonoBehaviour {
 
+	public float awesomeness = 10f;
 	public Transform startBuilding;
 	public Transform[] largeBuildings;
+	public Transform[] mediumBuildings;
+	public Transform[] smallBuildings;
+	public Transform[] tinyBuildings;
+
+	public float largeBuildingsThreshold = 9f;
+	public float mediumBuildingsThreshold = 6f;
+	public float smallBuildingsThreshold = 4f;
+	public float tinyBuildingsThreshold = 1f;
+
 	public float initialVelocity = 1.0f;
 	public float velocityIncrease = 0.1f;
 	public float activeArea = 10.0f;
@@ -77,11 +87,61 @@ public class RunnerGameWorld : MonoBehaviour {
 
 	void SpawnNewBuilding(Vector3 spawnPos)
 	{
-		int index = Random.Range(0, largeBuildings.Length);
-		Transform transform = Instantiate(largeBuildings[index]) as Transform;
+		Transform transform = null;
+		if (awesomeness > largeBuildingsThreshold) 
+		{
+			transform = SpawnRandomBuilding(largeBuildings);
+		}
+		else if (awesomeness > mediumBuildingsThreshold)
+		{
+			// spawn medium or large
+			if(awesomeness > Random.Range(mediumBuildingsThreshold, largeBuildingsThreshold))
+			{
+				transform = SpawnRandomBuilding(largeBuildings);
+			}
+			else
+			{
+				transform = SpawnRandomBuilding(smallBuildings);
+			}
+		}
+		else if (awesomeness > smallBuildingsThreshold)
+		{
+			// spawn medium or small
+			if(awesomeness > Random.Range(smallBuildingsThreshold, mediumBuildingsThreshold))
+			{
+				transform = SpawnRandomBuilding(mediumBuildings);
+			}
+			else
+			{
+				transform = SpawnRandomBuilding(smallBuildings);
+			}
+		}
+		else if (awesomeness > tinyBuildingsThreshold)
+		{
+			// spawn small or tiny
+			if(awesomeness > Random.Range(tinyBuildingsThreshold, smallBuildingsThreshold))
+			{
+				transform = SpawnRandomBuilding(mediumBuildings);
+			}
+			else
+			{
+				transform = SpawnRandomBuilding(smallBuildings);
+			}
+		}
+		else
+		{
+			transform = SpawnRandomBuilding(tinyBuildings);
+		}
+
 		transform.parent = this.transform;
 		transform.localPosition = spawnPos;
 		toBeAdded.Add(transform);
+	}
+
+	Transform SpawnRandomBuilding(Transform[] sources)
+	{
+		int index = Random.Range(0, sources.Length);
+		return Instantiate(sources[index]) as Transform;
 	}
 
 	public void ResetGame()
