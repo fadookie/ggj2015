@@ -664,7 +664,7 @@ MonoBehaviour:
   mediumBuildingsThreshold: 6
   smallBuildingsThreshold: 4
   tinyBuildingsThreshold: 1
-  initialVelocity: 3
+  initialVelocity: 4
   velocityIncrease: .100000001
   activeArea: 30
 --- !u!1 &1670938425

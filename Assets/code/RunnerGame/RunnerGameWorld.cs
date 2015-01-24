@@ -159,10 +159,9 @@ public class RunnerGameWorld : MonoBehaviour {
 		startBuilding.transform.localPosition = startPos;
 
 
-		SpawnNewBuilding(new Vector3(10f, -1f, 0f));
 		SpawnNewBuilding(new Vector3(15f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(20f, -1f, 0f));
-		SpawnNewBuilding(new Vector3(25f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(23f, -1f, 0f));
+		SpawnNewBuilding(new Vector3(30f, -1f, 0f));
 		
 		foreach(var building in toBeAdded)
 		{

@@ -88,19 +88,6 @@ public class RunnerGamePlayer : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider collider)
-	{
-		//game.Score++;
-		//collisionCount++;
-		//print ("Trigger Enter");
-	}
-
-	void OnTriggerExit(Collider collider)
-	{
-		//collisionCount--;
-		//print ("Trigger Exit");
-	}
-
 	void OnCollisionEnter(Collision collision)
 	{
 		Vector3 avgNormal = Vector3.zero;
@@ -111,19 +98,16 @@ public class RunnerGamePlayer : MonoBehaviour {
 		avgNormal.Normalize();
 
 		float dot = Vector3.Dot(avgNormal, Vector3.up);
-		print ("Dot: " + dot);
 		if (dot > 0.5f)
 		{
 			game.Score++;
 			collisionCount++;
 		}
-		//print ("Collision Enter");
 	}
 	
 	void OnCollisionExit(Collision collision)
 	{
 		collisionCount--;
-		print ("Collision Exit");
 		
 	}
 	
