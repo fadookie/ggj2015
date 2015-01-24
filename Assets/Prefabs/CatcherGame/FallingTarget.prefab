@@ -86,6 +86,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveVel: .100000001
+  materialsPerType:
+  - {fileID: 2100000, guid: b9e04577e37164823823a0d7138f55b0, type: 2}
+  - {fileID: 2100000, guid: 33f37b27c10e645c4bac5565c29da5ff, type: 2}
+  - {fileID: 2100000, guid: 8c76b3751609543a1a856eb55664b1fd, type: 2}
+  targetType: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

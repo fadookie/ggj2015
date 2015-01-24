@@ -18,5 +18,6 @@ public class CatcherGame : MinigameBase {
 
 	public override void onBadEvent(int magnitude) {
 		print(gameObject.name + " onBadEvent mag:" + magnitude);
+		Services.instance.Get<TargetSpawner>().spawnTargetOfType(FallingTarget.TargetType.ShouldNotCatch);
 	}
 }
