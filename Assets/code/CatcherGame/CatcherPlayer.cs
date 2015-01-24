@@ -4,8 +4,8 @@ using System.Collections;
 public class CatcherPlayer : MonoBehaviour {
 
 	public float moveVel = 1f;
-	public GameObject xMin;
-	public GameObject xMax;
+	public Transform xMin;
+	public Transform xMax;
 
 	CatcherGame game;
 
@@ -25,7 +25,7 @@ public class CatcherPlayer : MonoBehaviour {
 			} else if (input.GetButton(game.PlayerIdx, InputManager.Button.Right)) {
 				newPos.x += moveVel * Time.deltaTime * targetTimeScale; 
 			}
-			newPos.x = Mathf.Clamp(newPos.x, xMin.transform.localPosition.x, xMax.transform.localPosition.x);
+			newPos.x = Mathf.Clamp(newPos.x, xMin.localPosition.x, xMax.localPosition.x);
 			transform.localPosition = newPos; 
 		}
 	}

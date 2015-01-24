@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public class GameEventBus : MonoBehaviour {
 	public string[] gameNames;
-	List<MinigameBase> games;
+	public List<MinigameBase> games;
 
 	bool gamesLoaded = false;
 
