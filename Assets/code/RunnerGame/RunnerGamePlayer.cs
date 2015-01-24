@@ -7,12 +7,14 @@ public class RunnerGamePlayer : MonoBehaviour {
 
 	public float jumpBoostTime = 0.5f;
 	public float jumpBoost = 10.0f;
+	public float gravity = 10.0f;
 
 	int collisionCount = 0;
 	int framesNoCollision = 0;
 
 	bool onTheGround = false;
 	float currentJumpBoost = 0;
+	float velocity;
 	
 	// Use this for initialization
 	void Start () {
@@ -36,6 +38,7 @@ public class RunnerGamePlayer : MonoBehaviour {
 		if (onTheGround)
 		{
 			currentJumpBoost = jumpBoostTime;
+			velocity = 0f;
 		}
 
 		InputManager input = Services.instance.Get<InputManager>();
@@ -44,7 +47,7 @@ public class RunnerGamePlayer : MonoBehaviour {
 			{
 				if (onTheGround)
 				{
-					rigidbody.velocity = new Vector3(0f, jumpBoost, 0f);
+					velocity = jumpBoost;
 					framesNoCollision = FRAMES_NO_COLLISION_CONSIDERED_VALID;
 				}
 			}
@@ -57,7 +60,7 @@ public class RunnerGamePlayer : MonoBehaviour {
 					if (currentJumpBoost > 0f)
 					{
 						currentJumpBoost -= Time.fixedDeltaTime;
-						rigidbody.velocity = new Vector3(0f, jumpBoost, 0f);
+						velocity = jumpBoost;
 					}
 				}
 				else
@@ -69,25 +72,64 @@ public class RunnerGamePlayer : MonoBehaviour {
 #endif
 		}
 
+
+		if (!onTheGround)
+		{
+			velocity += -gravity * Time.deltaTime;
+		}
+
+		Vector3 pos = transform.localPosition;
+		pos.y += velocity * Time.deltaTime;
+		transform.localPosition = pos;
+
 		if (transform.localPosition.y < -6f)
 		{
 			game.ResetGame();
 		}
 	}
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider collider)
 	{
-		game.Score++;
-		collisionCount++;
+		//game.Score++;
+		//collisionCount++;
+		//print ("Trigger Enter");
 	}
 
+	void OnTriggerExit(Collider collider)
+	{
+		//collisionCount--;
+		//print ("Trigger Exit");
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		Vector3 avgNormal = Vector3.zero;
+		foreach(var contact in collision.contacts)
+		{
+			avgNormal += contact.normal;
+		}
+		avgNormal.Normalize();
+
+		float dot = Vector3.Dot(avgNormal, Vector3.up);
+		print ("Dot: " + dot);
+		if (dot > 0.5f)
+		{
+			game.Score++;
+			collisionCount++;
+		}
+		//print ("Collision Enter");
+	}
+	
 	void OnCollisionExit(Collision collision)
 	{
 		collisionCount--;
+		print ("Collision Exit");
+		
 	}
-
+	
 	public void ResetGame()
 	{
+		collisionCount = 0;
 		transform.localPosition = Vector3.zero;
 	}
 }
