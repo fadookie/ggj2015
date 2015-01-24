@@ -26,6 +26,10 @@ public class SwordGame : MinigameBase {
 		spawner.SpawnBadEnemy();
 	}
 
+	public override void onCombo(Combo combo) {
+		print("SwordGame::onComboEvent: " + combo);
+	}
+
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
 		print("SwordGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
 	}

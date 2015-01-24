@@ -6,6 +6,9 @@ public abstract class MinigameBase : MonoBehaviour {
 	public delegate void MinigameScoreEventHandler(MinigameBase sender, int delta);
 	public MinigameScoreEventHandler onScoreIncrease;
 	public MinigameScoreEventHandler onScoreDecrease;
+
+	public delegate void MinigameComboEventHandler(MinigameBase sender, Combo combo);
+	public MinigameComboEventHandler onComboEvent;
 	#endregion
 
 	int _score;
@@ -41,6 +44,8 @@ public abstract class MinigameBase : MonoBehaviour {
 	#region Respond callback
 	public abstract void onGoodEvent(int magnitude);
 	public abstract void onBadEvent(int magnitude);
+
+	public abstract void onCombo(Combo combo);
 
 	public abstract void onPlayerIdxChange(int oldIdx, int newIdx);
 	#endregion

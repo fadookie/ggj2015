@@ -14,7 +14,9 @@ public class TestGame : MinigameBase {
 		InputManager input = Services.instance.Get<InputManager>();
 		if (input != null) {
 			if(input.GetButtonDown(PlayerIdx, InputManager.Button.Left)) {
-				++Score;
+				if(onComboEvent != null) {
+					onComboEvent(this, new Combo(Combo.Color.Color0, Combo.Shape.Shape0));
+				}
 			} else if (input.GetButtonDown(PlayerIdx, InputManager.Button.Right)) {
 				--Score;
 			}
@@ -30,6 +32,12 @@ public class TestGame : MinigameBase {
 	public override void onBadEvent(int magnitude) {
 		if(loggingEnabled) {
 			print(gameObject.name + " onBadEvent mag:" + magnitude);
+		}
+	}
+
+	public override void onCombo(Combo combo) {
+		if(loggingEnabled) {
+			print(gameObject.name + " onComboEvent: " + combo);
 		}
 	}
 

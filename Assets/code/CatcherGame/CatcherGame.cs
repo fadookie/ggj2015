@@ -59,6 +59,10 @@ public class CatcherGame : MinigameBase {
 		timeScaleBadEffectElapsed = 0f;
 	}
 
+	public override void onCombo(Combo combo) {
+		print(gameObject.name + " onComboEvent: " + combo);
+	}
+
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
 		print(gameObject.name + " onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
 	}

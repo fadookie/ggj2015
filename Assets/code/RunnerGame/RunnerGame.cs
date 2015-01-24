@@ -25,6 +25,10 @@ public class RunnerGame : MinigameBase {
 		world.awesomeness = Mathf.Clamp((float)world.awesomeness-1.0f, 0f, 10f);
 	}
 
+	public override void onCombo(Combo combo) {
+		print("RunnerGame::onComboEvent: " + combo);
+	}
+
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
 		print("RunnerGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
 	}

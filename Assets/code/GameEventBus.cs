@@ -103,6 +103,16 @@ public class GameEventBus : MonoBehaviour {
 	void subscribeToGame(MinigameBase game) {
 		game.onScoreIncrease += onScoreIncrease;
 		game.onScoreDecrease += onScoreDecrease;
+		game.onComboEvent += onComboEvent;
+	}
+
+	void onComboEvent(MinigameBase sender, Combo combo) {
+		//Only pass combo events forward, don't wrap back to 1st game
+		int gameIdx = games.IndexOf(sender);
+		int nextGameIdx = gameIdx + 1;
+		if (nextGameIdx < games.Count) {
+			games[nextGameIdx].onCombo(combo);
+		}
 	}
 
 	void onScoreIncrease(MinigameBase sender, int delta) {
