@@ -175,4 +175,9 @@ public class RunnerGameWorld : MonoBehaviour {
 	{
 		velocity = 0.0f;
 	}
+
+	public float GetVelocity()
+	{
+		return velocity;
+	}
 }
