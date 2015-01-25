@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnergyBeamView : MonoBehaviour {
 
-	public Transform energyBeamCenter;
+//	public Transform energyBeamCenter;
 //	public Transform energyBeamMinX;
 //	public Transform energyBeamMaxX;
 	public float meterMinXScale = 0.01f;
