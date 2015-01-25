@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Animator))]
 public class SwordGamePlayer : MonoBehaviour {
 
 	public SwordGame swordGame;
@@ -27,10 +28,13 @@ public class SwordGamePlayer : MonoBehaviour {
 		Right,
 	}
 
+	Animator anim;
+
 	// Use this for initialization
 	void Start () {
 		toBeRemoved = new List<SwordGameEnemy>();
 		timeSinceLastAttack = minTimeBetweenAttacks;
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -62,6 +66,13 @@ public class SwordGamePlayer : MonoBehaviour {
 			}
 
 		}
+
+		anim.SetBool("Charging", chargeTime > 0f);
+		Vector3 scale = transform.localScale;
+		if (direction != 0f) {
+			scale.x = direction;
+		}
+		transform.localScale = scale;
 
 		if(direction == 0f && prevDirection != 0f)
 		{
