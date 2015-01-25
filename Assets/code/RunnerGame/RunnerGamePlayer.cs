@@ -140,5 +140,6 @@ public class RunnerGamePlayer : MonoBehaviour {
 	{
 		collisionCount = 0;
 		transform.localPosition = Vector3.zero;
+		velocity = 0f;
 	}
 }
