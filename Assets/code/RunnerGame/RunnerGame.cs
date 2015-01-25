@@ -35,7 +35,7 @@ public class RunnerGame : MinigameBase {
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
-		print("RunnerGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
+//		print("RunnerGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
 	}
 
 	public void ResetGame()

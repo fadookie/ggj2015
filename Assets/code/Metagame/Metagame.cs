@@ -26,6 +26,8 @@ public class Metagame : MinigameBase {
 	public float bleedScoreInterval = 1;
 	public int bleedScoreAmt = 1;
 
+	public float timeStretchAcceleration = 0.01f;
+
 	EnergyBeamView view;
 
 	// Use this for initialization
@@ -38,8 +40,13 @@ public class Metagame : MinigameBase {
 	
 	// Update i_metaScoreed once per frame
 	void Update () {
-	
+		float timeScaleDelta = timeStretchAcceleration * (Time.deltaTime / Time.timeScale);
+//		print (timeScaleDelta);
+		Time.timeScale += timeScaleDelta;
+		Time.timeScale = Mathf.Clamp(Time.timeScale, 1f, 4f);
+//		print (Time.timeScale);
 	}
+
 	void updateView() {
 		if (view != null) {
 			view.FillPct = winScorePct;
@@ -65,12 +72,12 @@ public class Metagame : MinigameBase {
 
 	public override void onGoodEvent(int magnitude) {
 		metaScore += magnitude;
-		print(gameObject.name + " onGoodEvent mag:" + magnitude);
+//		print(gameObject.name + " onGoodEvent mag:" + magnitude);
 	}
 
 	public override void onBadEvent(int magnitude) {
 		metaScore += magnitude;
-		print(gameObject.name + " onBadEvent mag:" + magnitude);
+//		print(gameObject.name + " onBadEvent mag:" + magnitude);
 	}
 
 	public override void onCombo(Combo combo) {

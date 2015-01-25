@@ -80,6 +80,6 @@ public class CatcherGame : MinigameBase {
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
-		print(gameObject.name + " onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
+//		print(gameObject.name + " onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
 	}
 }

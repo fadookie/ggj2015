@@ -30,7 +30,7 @@ public class RunnerGamePowerupSpawner : MonoBehaviour {
 
 		// pick a random other combo shape.
 		int length = System.Enum.GetNames(typeof(Combo.Color)).Length;
-		int c = (int)combo.shape + Random.Range(1, length) % length;
+		int c = ((int)combo.shape + Random.Range(1, length)) % length;
 		SpawnPowerup((Combo.Shape)c, new Vector3(world.activeArea + Random.Range(-3.0f, 3.0f), heights[(idx+1)%heights.Length], 0f));
 	}
 

@@ -39,13 +39,8 @@ public class GameEventBus : MonoBehaviour {
 		}
 	}
 
-	void Update() {
-		float timeScaleDelta = 0.01f * (Time.deltaTime / Time.timeScale);
-//		print (timeScaleDelta);
-		Time.timeScale += timeScaleDelta;
-		Time.timeScale = Mathf.Clamp(Time.timeScale, 1f, 4f);
-//		print (Time.timeScale);
-	}
+//	void Update() {
+//	}
 
 	void onScenesLoaded() {
 		StartCoroutine(findGameObjectsAfterDelay());

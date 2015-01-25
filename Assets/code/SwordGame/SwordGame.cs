@@ -31,6 +31,6 @@ public class SwordGame : MinigameBase {
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {
-		print("SwordGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
+//		print("SwordGame::onPlayerIdxChange oldIdx:" + oldIdx + " newIdx: " + newIdx);
 	}
 }
