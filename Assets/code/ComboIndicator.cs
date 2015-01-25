@@ -16,6 +16,8 @@ public class ComboIndicator : MonoBehaviour {
 
 	Color currentColor;
 
+	public bool pickedUp = false;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -23,9 +25,12 @@ public class ComboIndicator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.localPosition += new Vector3(0f, velocity * Time.deltaTime, 0f);
-		currentColor.a -= (1.0f / fadeOutTime) * Time.deltaTime;
-		SetColor(currentColor);
+		if(pickedUp)
+		{
+			transform.localPosition += new Vector3(0f, velocity * Time.deltaTime, 0f);
+			currentColor.a -= (1.0f / fadeOutTime) * Time.deltaTime;
+			SetColor(currentColor);
+		}
 	}
 
 	public void SetCombo(Combo combo)

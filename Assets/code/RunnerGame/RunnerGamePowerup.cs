@@ -5,7 +5,6 @@ public class RunnerGamePowerup : MonoBehaviour {
 
 	public Combo.Shape shape;
 	public RunnerGameWorld world;
-	float rotation = 0;
 	// Use this for initialization
 	void Start () {
 	}
@@ -16,9 +15,6 @@ public class RunnerGamePowerup : MonoBehaviour {
 		Vector3 pos = transform.localPosition;
 		pos.x -= world.GetVelocity() * Time.deltaTime;
 		transform.localPosition = pos;
-
-		rotation += 20f * Time.deltaTime;
-		transform.rotation = Quaternion.Euler(rotation, 0f, 0f);
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -26,7 +22,8 @@ public class RunnerGamePowerup : MonoBehaviour {
 		if (collider.name == "Player")
 		{
 			Services.instance.Get<RunnerGame>().onShapeCaught(shape);
-			Destroy(this.gameObject);
+			GetComponent<ComboIndicator>().pickedUp = true;
+			print("Picked up!");
 		}
 	}
 }

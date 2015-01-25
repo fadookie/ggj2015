@@ -79,6 +79,7 @@ public class SwordGameEnemy : MonoBehaviour {
 				newComboIndicator.SetCombo(newCombo);
 				newComboIndicator.transform.parent = transform.parent;
 				newComboIndicator.transform.position = transform.position + new Vector3(0f, 3f, 0f);
+				newComboIndicator.pickedUp = true;
 			}
 		}
 	}

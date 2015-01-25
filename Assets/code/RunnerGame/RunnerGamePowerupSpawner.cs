@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 public class RunnerGamePowerupSpawner : MonoBehaviour {
 
-	public RunnerGamePowerup powerupRed;
-	public RunnerGamePowerup powerupBlue;
-	public RunnerGamePowerup powerupGreen;
+	public RunnerGamePowerup powerup;
 
 	public RunnerGameWorld world;
 
@@ -23,39 +21,41 @@ public class RunnerGamePowerupSpawner : MonoBehaviour {
 
 	public void SpawnPowerups(Combo combo)
 	{
-		float[] heights = { 2.5f, 4.9f };
+		float[] heights = { 3.5f, 6.2f };
 		int idx = Random.Range(0, 2);
 		// spawn correct
-		SpawnPowerup(combo.shape, new Vector3(world.activeArea + Random.Range(-3.0f, 3.0f), heights[idx], 0f));
+		Combo correctCombo = combo;
+		SpawnPowerup(correctCombo, new Vector3(world.activeArea, heights[idx], 0f));
 
 		// pick a random other combo shape.
 		int length = System.Enum.GetNames(typeof(Combo.Color)).Length;
-		int c = ((int)combo.shape + Random.Range(1, length)) % length;
-		SpawnPowerup((Combo.Shape)c, new Vector3(world.activeArea + Random.Range(-3.0f, 3.0f), heights[(idx+1)%heights.Length], 0f));
+		Combo fakeCombo = combo;
+		fakeCombo.shape = (Combo.Shape)(((int)combo.shape + Random.Range(1, length)) % length);
+		SpawnPowerup(fakeCombo, new Vector3(world.activeArea, heights[(idx+1)%heights.Length], 0f));
 	}
 
-	void SpawnPowerup(Combo.Shape shape, Vector3 pos)
+	void SpawnPowerup(Combo combo, Vector3 pos)
 	{
-		Debug.Log("Spawning powerup with shape: " + shape); 
-		RunnerGamePowerup powerup = null;
-		switch(shape)
+		Debug.Log("Spawning powerup with shape: " + combo.shape); 
+		RunnerGamePowerup newPowerup = Instantiate(powerup) as RunnerGamePowerup;;
+		
+		switch(combo.shape)
 		{
 		case Combo.Shape.Shape0:
-			powerup = Instantiate(powerupRed) as RunnerGamePowerup;
-			powerup.shape = Combo.Shape.Shape0;
+			newPowerup.shape = Combo.Shape.Shape0;
 			break;
 		case Combo.Shape.Shape1:
-			powerup = Instantiate(powerupBlue) as RunnerGamePowerup;
-			powerup.shape = Combo.Shape.Shape1;
+			newPowerup.shape = Combo.Shape.Shape1;
 			break;
 		case Combo.Shape.Shape2:
-			powerup = Instantiate(powerupGreen) as RunnerGamePowerup;
-			powerup.shape = Combo.Shape.Shape2;
+			newPowerup.shape = Combo.Shape.Shape2;
 			break;
 		}
-		powerup.transform.parent = transform;
+		newPowerup.transform.parent = transform;
 		Vector3 spawnPos = pos;
-		powerup.transform.localPosition = spawnPos;
-		powerup.world = world;
+		newPowerup.transform.localPosition = spawnPos;
+		newPowerup.world = world;
+
+		newPowerup.GetComponent<ComboIndicator>().SetCombo(combo);
 	}
 }
