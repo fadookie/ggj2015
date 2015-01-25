@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(Animator))]
 public class SwordGameEnemy : MonoBehaviour {
 
 	public SwordGame swordGame;
@@ -9,9 +10,13 @@ public class SwordGameEnemy : MonoBehaviour {
 	float alpha = 1;
 	bool dead;
 	SpriteRenderer spriteRenderer;
+
+	Animator anim;
+
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -48,5 +53,6 @@ public class SwordGameEnemy : MonoBehaviour {
 	public void Kill()
 	{
 		dead = true;
+		anim.SetTrigger("Die");
 	}
 }
