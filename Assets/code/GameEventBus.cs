@@ -63,20 +63,26 @@ public class GameEventBus : MonoBehaviour {
 			MinigameBase game = gameObj.GetComponent<MinigameBase>();
 			games.Add(game);
 			game.PlayerIdx = games.IndexOf(game);
-			subscribeToGame(game);
 		}
 
 		do {
 			GameObject gameObj = GameObject.Find(metagameName);
-			metagame = gameObj.GetComponent<MinigameBase>();
-			if (metagame != null) {
-				print ("found object (" + metagame + ") with name " + metagameName);
-				break;
+			if (gameObj != null) {
+				metagame = gameObj.GetComponent<MinigameBase>();
+				if (metagame != null) {
+					print ("found object (" + metagame + ") with name " + metagameName);
+					break;
+				}
 			}
 			yield return new WaitForEndOfFrame();
 		} while (metagame == null);
+		print ("all games loaded");
 
 		gamesLoaded = true;
+
+		foreach(MinigameBase game in games) {
+			subscribeToGame(game);
+		}
 
 		randomizePlayersRoutine = randomizePlayersAfterDelay();
 		StartCoroutine(randomizePlayersRoutine);
