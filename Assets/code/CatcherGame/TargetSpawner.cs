@@ -44,7 +44,7 @@ public class TargetSpawner : MonoBehaviour {
 	}
 
 	public void spawnTargetOfType(FallingTarget.TargetType type, Vector3 pos) {
-		GameObject spawned = Instantiate(spawnedPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+		GameObject spawned = Instantiate(spawnedPrefab, Vector3.zero, Quaternion.Euler(new Vector3(90, 90, 0))) as GameObject;
 		spawned.transform.parent = transform;
 		spawned.transform.localPosition = pos;
 		FallingTarget target = spawned.GetComponent<FallingTarget>();

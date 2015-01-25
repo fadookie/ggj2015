@@ -13,6 +13,14 @@ TextureImporter:
     21300016: Slash_Samurai_F7
     21300018: Slash_Samurai_F8
     21300020: Slash_Samurai_Special
+    21300022: Slash_EnemyDeath_f1
+    21300024: Slash_EnemyDeath_f2
+    21300026: Slash_EnemyDeath_f3
+    21300028: Slash_EnemyDeath_f4
+    21300030: Slash_EnemyDeath_f5
+    21300032: Slash_EnemyDeath_f6
+    21300034: Slash_EnemyDeath_f7
+    21300036: Slash_EnemyDeath_f8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,6 +62,86 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
+    - name: Slash_EnemyDeath_f1
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 824
+        width: 238
+        height: 208
+      alignment: 9
+      pivot: {x: .424369752, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 633
+        width: 231
+        height: 220
+      alignment: 9
+      pivot: {x: .393939406, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f3
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 635
+        width: 230
+        height: 219
+      alignment: 9
+      pivot: {x: .391304344, y: .497716904}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f4
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 602
+        width: 208
+        height: 220
+      alignment: 9
+      pivot: {x: .442307681, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f5
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 413
+        width: 205
+        height: 218
+      alignment: 9
+      pivot: {x: .439024389, y: .504587173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f6
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 636
+        width: 197
+        height: 218
+      alignment: 9
+      pivot: {x: .517766476, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f7
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 494
+        width: 155
+        height: 140
+      alignment: 9
+      pivot: {x: .696774185, y: .214285716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Slash_EnemyDeath_f8
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 2002
+        width: 46
+        height: 44
+      alignment: 9
+      pivot: {x: 1.93478262, y: -.931818187}
+      border: {x: 0, y: 0, z: 0, w: 0}
     - name: Slash_Enemy_f1
       rect:
         serializedVersion: 2
