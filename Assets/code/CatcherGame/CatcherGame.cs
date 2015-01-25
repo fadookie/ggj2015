@@ -22,6 +22,8 @@ public class CatcherGame : MinigameBase {
 	float timeScaleBadEffectElapsed = -1f;
 	float timeScaleGoodEffectElapsed = -1f;
 
+	public float comboSpawnDelayS = 1f;
+
 	public Text scoreLabel;
 
 	Combo? activeCombo = null;
@@ -75,8 +77,13 @@ public class CatcherGame : MinigameBase {
 
 	public override void onCombo(Combo combo) {
 		print(gameObject.name + " onComboEvent: " + combo);
-		Services.instance.Get<TargetSpawner>().spawnSpecialTargets();
 		activeCombo = combo;
+		StartCoroutine(spawnSpecialTargetsAfterDelay());
+	}
+
+	IEnumerator spawnSpecialTargetsAfterDelay() {
+		yield return new WaitForSeconds(comboSpawnDelayS);
+		Services.instance.Get<TargetSpawner>().spawnSpecialTargets();
 	}
 
 	public override void onPlayerIdxChange(int oldIdx, int newIdx) {

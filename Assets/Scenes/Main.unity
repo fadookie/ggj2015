@@ -2963,7 +2963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScore: 10000
-  comboScore: 100
+  comboScore: 1000
   bleedScoreInterval: .5
   bleedScoreAmt: 10
   timeStretchAcceleration: .00999999978
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   metagameName: Metagame
   randomizePlayers: 1
   randomizeDelayAlertPreroll: 1
-  randomizePlayersDelayS: 30
+  randomizePlayersDelayS: 60
   InputSwapAlert: {fileID: 2082235555}
 --- !u!4 &1918316785
 Transform:
