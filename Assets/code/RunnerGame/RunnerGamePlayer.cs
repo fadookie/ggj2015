@@ -15,6 +15,9 @@ public class RunnerGamePlayer : MonoBehaviour {
 	bool onTheGround = false;
 	float currentJumpBoost = 0;
 	float velocity;
+
+	public Light particleLight;
+	public ParticleEmitter sparksEmitter;
 	
 	// Use this for initialization
 	void Start () {
@@ -71,6 +74,9 @@ public class RunnerGamePlayer : MonoBehaviour {
 			}
 #endif
 		}
+
+		particleLight.enabled = currentJumpBoost > 0f && !onTheGround;
+		sparksEmitter.emit = currentJumpBoost > 0f && !onTheGround;
 
 		float tmpGravity = gravity;
 		if (input != null) 
