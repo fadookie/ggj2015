@@ -2762,10 +2762,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winScore: 10000
   warningFlashThreshold: 1000
-  comboScore: 1000
+  comboScore: 4000
   bleedScoreInterval: .5
   bleedScoreAmt: 10
-  timeStretchAcceleration: .00999999978
+  timeStretchAcceleration: 0
   warningFlashQuad: {fileID: 1534990942}
   warningFlashPeriod: 4
 --- !u!1 &1761570969

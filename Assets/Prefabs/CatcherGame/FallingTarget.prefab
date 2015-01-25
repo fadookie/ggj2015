@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d030f3389ed24bedb861909a57a6a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveVel: 2
+  moveVel: 1
   materialsPerType:
   - {fileID: 2100000, guid: ef8588e97824247038fb446cd295d0e9, type: 2}
   - {fileID: 2100000, guid: 38b0c41d70f184e98979d6e4ccd02c6e, type: 2}
@@ -111,7 +111,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .300000012
+  m_Radius: .25
   m_Center: {x: 0, y: 0, z: .300000012}
 --- !u!1001 &100100000
 Prefab:
