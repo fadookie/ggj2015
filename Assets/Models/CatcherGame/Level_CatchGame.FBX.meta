@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: f0095303d6b0343d0a4c11522f2720df
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Barrel
+    100002: Barrel001
+    100004: Barrel002
+    100006: Barrel003
+    100008: Barrel004
+    100010: Barrel005
+    100012: Barrel006
+    100014: Barrel007
+    100016: Barrel008
+    100018: Barrel009
+    100020: Barrel011
+    100022: Barrel012
+    100024: Barrel013
+    100026: Barrel014
+    100028: Barrel015
+    100030: Big_Rock00
+    100032: Big_Rock01
+    100034: Big_Rock02
+    100036: Big_Rock03
+    100038: Big_Rock04
+    100040: Big_Rock05
+    100042: Big_Rock06
+    100044: Bomb
+    100046: Box002
+    100048: Box003
+    100050: Box006
+    100052: Box055
+    100054: Box056
+    100056: Box057
+    100058: Box058
+    100060: Cactus
+    100062: Cactus001
+    100064: Cactus002
+    100066: Cactus003
+    100068: Cactus004
+    100070: Cactus005
+    100072: Cactus006
+    100074: Cactus007
+    100076: Cactus008
+    100078: Cart
+    100080: Cylinder001
+    100082: Cylinder004
+    100084: Cylinder005
+    100086: Cylinder006
+    100088: Cylinder007
+    100090: Cylinder008
+    100092: Cylinder009
+    100094: Cylinder010
+    100096: Cylinder011
+    100098: Cylinder012
+    100100: Cylinder013
+    100102: Cylinder014
+    100104: Door_Left001
+    100106: Door_Left002
+    100108: Door_Left_Handle_003
+    100110: Door_Left_Handle_01
+    100112: Door_Left_Handle_010
+    100114: Door_Left_Handle_011
+    100116: Door_Left_Handle_012
+    100118: Door_Left_Handle_013
+    100120: Door_Left_Handle_014
+    100122: Door_Left_Handle_015
+    100124: Door_Left_Handle_016
+    100126: Door_Left_Handle_017
+    100128: Door_Left_Handle_018
+    100130: Door_Left_Handle_02
+    100132: Door_Right001
+    100134: Door_Right002
+    100136: Ground
+    100138: //RootNode
+    100140: Lucky_Star_Saloon001
+    100142: Lucky_Star_Saloon004
+    100144: Object003
+    100146: Object004
+    100148: Object005
+    100150: Object006
+    100152: Object007
+    100154: Object008
+    100156: Plane001
+    100158: Ranch_Support
+    100160: Ranch_Support 1
+    100162: Ranch_Support001
+    100164: Ranch_Support002
+    100166: Rock_combined
+    100168: Saloon_Bars001
+    100170: Saloon_Bars002
+    100172: Saloon_Sign001
+    100174: Saloon_Sign004
+    100176: Saloon_Support_Bars002
+    100178: Saloon_Support_Bars003
+    100180: Saloon_Support_Bars004
+    100182: Saloon_Support_Bars005
+    100184: Saloon_Support_Bars006
+    100186: Saloon_Support_Bars007
+    100188: Saloon_Support_Bars008
+    100190: Saloon_Support_Bars009
+    100192: Saloon_Support_Bars010
+    100194: Saloon_Support_Bars011
+    100196: Saloon_Support_Bars012
+    100198: Saloon_Support_Bars013
+    100200: Sand_BG
+    100202: Sign
+    100204: Sign_Support
+    100206: Sign_Support 1
+    100208: Small_Rock00
+    100210: Small_Rock005
+    100212: Small_Rock006
+    100214: Small_Rock007
+    100216: Small_Rock008
+    100218: Small_Rock009
+    100220: Small_Rock01
+    100222: Small_Rock010
+    100224: Small_Rock02
+    100226: Small_Rock03
+    100228: Small_Rock04
+    100230: Sphere001
+    100232: Water_Tower
+    100234: Water_Tower_Support
+    100236: Water_Tower_Support 1
+    100238: Water_Tower_Support 10
+    100240: Water_Tower_Support 11
+    100242: Water_Tower_Support 12
+    100244: Water_Tower_Support 13
+    100246: Water_Tower_Support 14
+    100248: Water_Tower_Support 15
+    100250: Water_Tower_Support 16
+    100252: Water_Tower_Support 17
+    100254: Water_Tower_Support 18
+    100256: Water_Tower_Support 19
+    100258: Water_Tower_Support 2
+    100260: Water_Tower_Support 20
+    100262: Water_Tower_Support 21
+    100264: Water_Tower_Support 22
+    100266: Water_Tower_Support 23
+    100268: Water_Tower_Support 24
+    100270: Water_Tower_Support 3
+    100272: Water_Tower_Support 4
+    100274: Water_Tower_Support 5
+    100276: Water_Tower_Support 6
+    100278: Water_Tower_Support 7
+    100280: Water_Tower_Support 8
+    100282: Water_Tower_Support 9
+    400000: Barrel
+    400002: Barrel001
+    400004: Barrel002
+    400006: Barrel003
+    400008: Barrel004
+    400010: Barrel005
+    400012: Barrel006
+    400014: Barrel007
+    400016: Barrel008
+    400018: Barrel009
+    400020: Barrel011
+    400022: Barrel012
+    400024: Barrel013
+    400026: Barrel014
+    400028: Barrel015
+    400030: Big_Rock00
+    400032: Big_Rock01
+    400034: Big_Rock02
+    400036: Big_Rock03
+    400038: Big_Rock04
+    400040: Big_Rock05
+    400042: Big_Rock06
+    400044: Bomb
+    400046: Box002
+    400048: Box003
+    400050: Box006
+    400052: Box055
+    400054: Box056
+    400056: Box057
+    400058: Box058
+    400060: Cactus
+    400062: Cactus001
+    400064: Cactus002
+    400066: Cactus003
+    400068: Cactus004
+    400070: Cactus005
+    400072: Cactus006
+    400074: Cactus007
+    400076: Cactus008
+    400078: Cart
+    400080: Cylinder001
+    400082: Cylinder004
+    400084: Cylinder005
+    400086: Cylinder006
+    400088: Cylinder007
+    400090: Cylinder008
+    400092: Cylinder009
+    400094: Cylinder010
+    400096: Cylinder011
+    400098: Cylinder012
+    400100: Cylinder013
+    400102: Cylinder014
+    400104: Door_Left001
+    400106: Door_Left002
+    400108: Door_Left_Handle_003
+    400110: Door_Left_Handle_01
+    400112: Door_Left_Handle_010
+    400114: Door_Left_Handle_011
+    400116: Door_Left_Handle_012
+    400118: Door_Left_Handle_013
+    400120: Door_Left_Handle_014
+    400122: Door_Left_Handle_015
+    400124: Door_Left_Handle_016
+    400126: Door_Left_Handle_017
+    400128: Door_Left_Handle_018
+    400130: Door_Left_Handle_02
+    400132: Door_Right001
+    400134: Door_Right002
+    400136: Ground
+    400138: //RootNode
+    400140: Lucky_Star_Saloon001
+    400142: Lucky_Star_Saloon004
+    400144: Object003
+    400146: Object004
+    400148: Object005
+    400150: Object006
+    400152: Object007
+    400154: Object008
+    400156: Plane001
+    400158: Ranch_Support
+    400160: Ranch_Support 1
+    400162: Ranch_Support001
+    400164: Ranch_Support002
+    400166: Rock_combined
+    400168: Saloon_Bars001
+    400170: Saloon_Bars002
+    400172: Saloon_Sign001
+    400174: Saloon_Sign004
+    400176: Saloon_Support_Bars002
+    400178: Saloon_Support_Bars003
+    400180: Saloon_Support_Bars004
+    400182: Saloon_Support_Bars005
+    400184: Saloon_Support_Bars006
+    400186: Saloon_Support_Bars007
+    400188: Saloon_Support_Bars008
+    400190: Saloon_Support_Bars009
+    400192: Saloon_Support_Bars010
+    400194: Saloon_Support_Bars011
+    400196: Saloon_Support_Bars012
+    400198: Saloon_Support_Bars013
+    400200: Sand_BG
+    400202: Sign
+    400204: Sign_Support
+    400206: Sign_Support 1
+    400208: Small_Rock00
+    400210: Small_Rock005
+    400212: Small_Rock006
+    400214: Small_Rock007
+    400216: Small_Rock008
+    400218: Small_Rock009
+    400220: Small_Rock01
+    400222: Small_Rock010
+    400224: Small_Rock02
+    400226: Small_Rock03
+    400228: Small_Rock04
+    400230: Sphere001
+    400232: Water_Tower
+    400234: Water_Tower_Support
+    400236: Water_Tower_Support 1
+    400238: Water_Tower_Support 10
+    400240: Water_Tower_Support 11
+    400242: Water_Tower_Support 12
+    400244: Water_Tower_Support 13
+    400246: Water_Tower_Support 14
+    400248: Water_Tower_Support 15
+    400250: Water_Tower_Support 16
+    400252: Water_Tower_Support 17
+    400254: Water_Tower_Support 18
+    400256: Water_Tower_Support 19
+    400258: Water_Tower_Support 2
+    400260: Water_Tower_Support 20
+    400262: Water_Tower_Support 21
+    400264: Water_Tower_Support 22
+    400266: Water_Tower_Support 23
+    400268: Water_Tower_Support 24
+    400270: Water_Tower_Support 3
+    400272: Water_Tower_Support 4
+    400274: Water_Tower_Support 5
+    400276: Water_Tower_Support 6
+    400278: Water_Tower_Support 7
+    400280: Water_Tower_Support 8
+    400282: Water_Tower_Support 9
+    2300000: Barrel
+    2300002: Barrel001
+    2300004: Barrel002
+    2300006: Barrel003
+    2300008: Barrel004
+    2300010: Barrel005
+    2300012: Barrel006
+    2300014: Barrel007
+    2300016: Barrel008
+    2300018: Barrel009
+    2300020: Barrel011
+    2300022: Barrel012
+    2300024: Barrel013
+    2300026: Barrel014
+    2300028: Barrel015
+    2300030: Big_Rock00
+    2300032: Big_Rock01
+    2300034: Big_Rock02
+    2300036: Big_Rock03
+    2300038: Big_Rock04
+    2300040: Big_Rock05
+    2300042: Big_Rock06
+    2300044: Bomb
+    2300046: Box002
+    2300048: Box003
+    2300050: Box006
+    2300052: Box055
+    2300054: Box056
+    2300056: Box057
+    2300058: Box058
+    2300060: Cactus
+    2300062: Cactus001
+    2300064: Cactus002
+    2300066: Cactus003
+    2300068: Cactus004
+    2300070: Cactus005
+    2300072: Cactus006
+    2300074: Cactus007
+    2300076: Cactus008
+    2300078: Cart
+    2300080: Cylinder001
+    2300082: Cylinder004
+    2300084: Cylinder005
+    2300086: Cylinder006
+    2300088: Cylinder007
+    2300090: Cylinder008
+    2300092: Cylinder009
+    2300094: Cylinder010
+    2300096: Cylinder011
+    2300098: Cylinder012
+    2300100: Cylinder013
+    2300102: Cylinder014
+    2300104: Door_Left001
+    2300106: Door_Left002
+    2300108: Door_Left_Handle_003
+    2300110: Door_Left_Handle_01
+    2300112: Door_Left_Handle_010
+    2300114: Door_Left_Handle_011
+    2300116: Door_Left_Handle_012
+    2300118: Door_Left_Handle_013
+    2300120: Door_Left_Handle_014
+    2300122: Door_Left_Handle_015
+    2300124: Door_Left_Handle_016
+    2300126: Door_Left_Handle_017
+    2300128: Door_Left_Handle_018
+    2300130: Door_Left_Handle_02
+    2300132: Door_Right001
+    2300134: Door_Right002
+    2300136: Ground
+    2300138: Lucky_Star_Saloon001
+    2300140: Lucky_Star_Saloon004
+    2300142: Object003
+    2300144: Object004
+    2300146: Object005
+    2300148: Object006
+    2300150: Object007
+    2300152: Object008
+    2300154: Plane001
+    2300156: Ranch_Support
+    2300158: Ranch_Support 1
+    2300160: Ranch_Support001
+    2300162: Ranch_Support002
+    2300164: Rock_combined
+    2300166: Saloon_Bars001
+    2300168: Saloon_Bars002
+    2300170: Saloon_Sign001
+    2300172: Saloon_Sign004
+    2300174: Saloon_Support_Bars002
+    2300176: Saloon_Support_Bars003
+    2300178: Saloon_Support_Bars004
+    2300180: Saloon_Support_Bars005
+    2300182: Saloon_Support_Bars006
+    2300184: Saloon_Support_Bars007
+    2300186: Saloon_Support_Bars008
+    2300188: Saloon_Support_Bars009
+    2300190: Saloon_Support_Bars010
+    2300192: Saloon_Support_Bars011
+    2300194: Saloon_Support_Bars012
+    2300196: Saloon_Support_Bars013
+    2300198: Sand_BG
+    2300200: Sign
+    2300202: Sign_Support
+    2300204: Sign_Support 1
+    2300206: Small_Rock00
+    2300208: Small_Rock005
+    2300210: Small_Rock006
+    2300212: Small_Rock007
+    2300214: Small_Rock008
+    2300216: Small_Rock009
+    2300218: Small_Rock01
+    2300220: Small_Rock010
+    2300222: Small_Rock02
+    2300224: Small_Rock03
+    2300226: Small_Rock04
+    2300228: Sphere001
+    2300230: Water_Tower
+    2300232: Water_Tower_Support
+    2300234: Water_Tower_Support 1
+    2300236: Water_Tower_Support 10
+    2300238: Water_Tower_Support 11
+    2300240: Water_Tower_Support 12
+    2300242: Water_Tower_Support 13
+    2300244: Water_Tower_Support 14
+    2300246: Water_Tower_Support 15
+    2300248: Water_Tower_Support 16
+    2300250: Water_Tower_Support 17
+    2300252: Water_Tower_Support 18
+    2300254: Water_Tower_Support 19
+    2300256: Water_Tower_Support 2
+    2300258: Water_Tower_Support 20
+    2300260: Water_Tower_Support 21
+    2300262: Water_Tower_Support 22
+    2300264: Water_Tower_Support 23
+    2300266: Water_Tower_Support 24
+    2300268: Water_Tower_Support 3
+    2300270: Water_Tower_Support 4
+    2300272: Water_Tower_Support 5
+    2300274: Water_Tower_Support 6
+    2300276: Water_Tower_Support 7
+    2300278: Water_Tower_Support 8
+    2300280: Water_Tower_Support 9
+    3300000: Barrel
+    3300002: Barrel001
+    3300004: Barrel002
+    3300006: Barrel003
+    3300008: Barrel004
+    3300010: Barrel005
+    3300012: Barrel006
+    3300014: Barrel007
+    3300016: Barrel008
+    3300018: Barrel009
+    3300020: Barrel011
+    3300022: Barrel012
+    3300024: Barrel013
+    3300026: Barrel014
+    3300028: Barrel015
+    3300030: Big_Rock00
+    3300032: Big_Rock01
+    3300034: Big_Rock02
+    3300036: Big_Rock03
+    3300038: Big_Rock04
+    3300040: Big_Rock05
+    3300042: Big_Rock06
+    3300044: Bomb
+    3300046: Box002
+    3300048: Box003
+    3300050: Box006
+    3300052: Box055
+    3300054: Box056
+    3300056: Box057
+    3300058: Box058
+    3300060: Cactus
+    3300062: Cactus001
+    3300064: Cactus002
+    3300066: Cactus003
+    3300068: Cactus004
+    3300070: Cactus005
+    3300072: Cactus006
+    3300074: Cactus007
+    3300076: Cactus008
+    3300078: Cart
+    3300080: Cylinder001
+    3300082: Cylinder004
+    3300084: Cylinder005
+    3300086: Cylinder006
+    3300088: Cylinder007
+    3300090: Cylinder008
+    3300092: Cylinder009
+    3300094: Cylinder010
+    3300096: Cylinder011
+    3300098: Cylinder012
+    3300100: Cylinder013
+    3300102: Cylinder014
+    3300104: Door_Left001
+    3300106: Door_Left002
+    3300108: Door_Left_Handle_003
+    3300110: Door_Left_Handle_01
+    3300112: Door_Left_Handle_010
+    3300114: Door_Left_Handle_011
+    3300116: Door_Left_Handle_012
+    3300118: Door_Left_Handle_013
+    3300120: Door_Left_Handle_014
+    3300122: Door_Left_Handle_015
+    3300124: Door_Left_Handle_016
+    3300126: Door_Left_Handle_017
+    3300128: Door_Left_Handle_018
+    3300130: Door_Left_Handle_02
+    3300132: Door_Right001
+    3300134: Door_Right002
+    3300136: Ground
+    3300138: Lucky_Star_Saloon001
+    3300140: Lucky_Star_Saloon004
+    3300142: Object003
+    3300144: Object004
+    3300146: Object005
+    3300148: Object006
+    3300150: Object007
+    3300152: Object008
+    3300154: Plane001
+    3300156: Ranch_Support
+    3300158: Ranch_Support 1
+    3300160: Ranch_Support001
+    3300162: Ranch_Support002
+    3300164: Rock_combined
+    3300166: Saloon_Bars001
+    3300168: Saloon_Bars002
+    3300170: Saloon_Sign001
+    3300172: Saloon_Sign004
+    3300174: Saloon_Support_Bars002
+    3300176: Saloon_Support_Bars003
+    3300178: Saloon_Support_Bars004
+    3300180: Saloon_Support_Bars005
+    3300182: Saloon_Support_Bars006
+    3300184: Saloon_Support_Bars007
+    3300186: Saloon_Support_Bars008
+    3300188: Saloon_Support_Bars009
+    3300190: Saloon_Support_Bars010
+    3300192: Saloon_Support_Bars011
+    3300194: Saloon_Support_Bars012
+    3300196: Saloon_Support_Bars013
+    3300198: Sand_BG
+    3300200: Sign
+    3300202: Sign_Support
+    3300204: Sign_Support 1
+    3300206: Small_Rock00
+    3300208: Small_Rock005
+    3300210: Small_Rock006
+    3300212: Small_Rock007
+    3300214: Small_Rock008
+    3300216: Small_Rock009
+    3300218: Small_Rock01
+    3300220: Small_Rock010
+    3300222: Small_Rock02
+    3300224: Small_Rock03
+    3300226: Small_Rock04
+    3300228: Sphere001
+    3300230: Water_Tower
+    3300232: Water_Tower_Support
+    3300234: Water_Tower_Support 1
+    3300236: Water_Tower_Support 10
+    3300238: Water_Tower_Support 11
+    3300240: Water_Tower_Support 12
+    3300242: Water_Tower_Support 13
+    3300244: Water_Tower_Support 14
+    3300246: Water_Tower_Support 15
+    3300248: Water_Tower_Support 16
+    3300250: Water_Tower_Support 17
+    3300252: Water_Tower_Support 18
+    3300254: Water_Tower_Support 19
+    3300256: Water_Tower_Support 2
+    3300258: Water_Tower_Support 20
+    3300260: Water_Tower_Support 21
+    3300262: Water_Tower_Support 22
+    3300264: Water_Tower_Support 23
+    3300266: Water_Tower_Support 24
+    3300268: Water_Tower_Support 3
+    3300270: Water_Tower_Support 4
+    3300272: Water_Tower_Support 5
+    3300274: Water_Tower_Support 6
+    3300276: Water_Tower_Support 7
+    3300278: Water_Tower_Support 8
+    3300280: Water_Tower_Support 9
+    4300000: Cylinder001
+    4300002: Sphere001
+    4300004: Box002
+    4300006: Box003
+    4300008: Cactus
+    4300010: Box006
+    4300012: Cylinder004
+    4300014: Sand_BG
+    4300016: Ground
+    4300018: Barrel
+    4300020: Cart
+    4300022: Water_Tower
+    4300024: Water_Tower_Support
+    4300026: Water_Tower_Support
+    4300028: Water_Tower_Support
+    4300030: Water_Tower_Support
+    4300032: Water_Tower_Support
+    4300034: Water_Tower_Support
+    4300036: Water_Tower_Support
+    4300038: Water_Tower_Support
+    4300040: Water_Tower_Support
+    4300042: Water_Tower_Support
+    4300044: Water_Tower_Support
+    4300046: Water_Tower_Support
+    4300048: Water_Tower_Support
+    4300050: Water_Tower_Support
+    4300052: Water_Tower_Support
+    4300054: Water_Tower_Support
+    4300056: Water_Tower_Support
+    4300058: Water_Tower_Support
+    4300060: Water_Tower_Support
+    4300062: Water_Tower_Support
+    4300064: Water_Tower_Support
+    4300066: Water_Tower_Support
+    4300068: Water_Tower_Support
+    4300070: Water_Tower_Support
+    4300072: Water_Tower_Support
+    4300074: Big_Rock00
+    4300076: Big_Rock04
+    4300078: Big_Rock02
+    4300080: Small_Rock01
+    4300082: Big_Rock01
+    4300084: Big_Rock06
+    4300086: Big_Rock05
+    4300088: Big_Rock03
+    4300090: Small_Rock04
+    4300092: Small_Rock00
+    4300094: Small_Rock03
+    4300096: Small_Rock02
+    4300098: Door_Left_Handle_02
+    4300100: Door_Left_Handle_01
+    4300102: Sign_Support
+    4300104: Saloon_Support_Bars002
+    4300106: Saloon_Bars001
+    4300108: Saloon_Support_Bars003
+    4300110: Lucky_Star_Saloon001
+    4300112: Saloon_Support_Bars004
+    4300114: Saloon_Support_Bars005
+    4300116: Saloon_Support_Bars006
+    4300118: Saloon_Support_Bars007
+    4300120: Door_Left001
+    4300122: Door_Left_Handle_003
+    4300124: Door_Right001
+    4300126: Object003
+    4300128: Box055
+    4300130: Sign_Support
+    4300132: Ranch_Support
+    4300134: Ranch_Support
+    4300136: Plane001
+    4300138: Rock_combined
+    4300140: Door_Left_Handle_010
+    4300142: Door_Left_Handle_011
+    4300144: Door_Left_Handle_012
+    4300146: Saloon_Support_Bars008
+    4300148: Saloon_Support_Bars009
+    4300150: Door_Left_Handle_013
+    4300152: Saloon_Support_Bars010
+    4300154: Saloon_Support_Bars011
+    4300156: Saloon_Support_Bars012
+    4300158: Saloon_Bars002
+    4300160: Door_Left_Handle_014
+    4300162: Door_Left_Handle_015
+    4300164: Saloon_Support_Bars013
+    4300166: Door_Left_Handle_016
+    4300168: Ranch_Support001
+    4300170: Door_Left002
+    4300172: Ranch_Support002
+    4300174: Door_Right002
+    4300176: Door_Left_Handle_017
+    4300178: Door_Left_Handle_018
+    4300180: Small_Rock005
+    4300182: Box056
+    4300184: Object004
+    4300186: Cylinder005
+    4300188: Cylinder006
+    4300190: Object005
+    4300192: Cylinder007
+    4300194: Cylinder008
+    4300196: Cylinder009
+    4300198: Object006
+    4300200: Cylinder010
+    4300202: Cylinder011
+    4300204: Box057
+    4300206: Cactus001
+    4300208: Cactus002
+    4300210: Cactus003
+    4300212: Cactus004
+    4300214: Cactus005
+    4300216: Object007
+    4300218: Cylinder012
+    4300220: Cylinder013
+    4300222: Box058
+    4300224: Barrel001
+    4300226: Barrel002
+    4300228: Barrel003
+    4300230: Barrel004
+    4300232: Barrel005
+    4300234: Barrel006
+    4300236: Barrel007
+    4300238: Barrel008
+    4300240: Barrel009
+    4300242: Barrel011
+    4300244: Barrel012
+    4300246: Barrel013
+    4300248: Barrel014
+    4300250: Barrel015
+    4300252: Small_Rock006
+    4300254: Cactus006
+    4300256: Cactus007
+    4300258: Cactus008
+    4300260: Cylinder014
+    4300262: Object008
+    4300264: Lucky_Star_Saloon004
+    4300266: Small_Rock007
+    4300268: Small_Rock008
+    4300270: Small_Rock009
+    4300272: Bomb
+    4300274: Sign
+    4300276: Saloon_Sign001
+    4300278: Saloon_Sign004
+    4300280: Small_Rock010
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
