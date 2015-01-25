@@ -22,7 +22,7 @@ public class SwordGameEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
-		if( !IsDead())
+		if(!IsDead())
 		{
 			Vector3 direction = swordGame.player.transform.position - transform.position;
 
@@ -43,6 +43,10 @@ public class SwordGameEnemy : MonoBehaviour {
 			Color color = spriteRenderer.color;
 			color.a = alpha;
 			spriteRenderer.color = color;
+			if(alpha <= 0.0f)
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 	public bool IsDead()
@@ -53,6 +57,9 @@ public class SwordGameEnemy : MonoBehaviour {
 	public void Kill()
 	{
 		dead = true;
-		anim.SetTrigger("Die");
+		if(anim)
+		{
+			anim.SetTrigger("Die");
+		}
 	}
 }

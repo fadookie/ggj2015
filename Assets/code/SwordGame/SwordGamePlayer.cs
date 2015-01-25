@@ -92,7 +92,7 @@ public class SwordGamePlayer : MonoBehaviour {
 		}
 		prevDirection = direction;
 		UpdateGraphics();
-
+		Cleanup();
 	}
 
 	void UpdateGraphics()
@@ -135,7 +135,6 @@ public class SwordGamePlayer : MonoBehaviour {
 
 	void PowerAttack()
 	{
-		print("Power attack!");
 		foreach(var enemy in leftSlashArea.GetIntersectingEnemies())
 		{
 			KillEnemy(enemy);
@@ -144,7 +143,7 @@ public class SwordGamePlayer : MonoBehaviour {
 		{
 			KillEnemy(enemy);
 		}
-		Cleanup ();
+
 	}
 
 	void Move (AttackDirection direction)

@@ -43,7 +43,10 @@ public class SwordGameSlashArea : MonoBehaviour {
 	{
 		if(enemies.Contains(enemy))
 		{
-			enemies.Remove(enemy);
+			if(enemy.IsDead())
+			{
+				enemies.Remove(enemy);
+			}
 		}
 	}
 }
