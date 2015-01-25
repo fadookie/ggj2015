@@ -17,6 +17,9 @@ public class FallingTarget : MonoBehaviour {
 	}
 
 	public Material[] materialsPerType;
+	public Mesh[] meshesPerType;
+
+	MeshFilter meshFilter;
 
 	public TargetType targetType = TargetType.ShouldCatch;
 
@@ -24,6 +27,8 @@ public class FallingTarget : MonoBehaviour {
 	void Start () {
 		game = Services.instance.Get<CatcherGame>();
 		renderer.material = materialsPerType[(int)targetType];
+		meshFilter = GetComponent<MeshFilter>();
+		meshFilter.mesh = meshesPerType[(int)targetType];
 	}
 	
 	// Update is called once per frame
