@@ -2950,7 +2950,7 @@ MonoBehaviour:
   playerMeterCap: {fileID: 1501858631}
   enemyMeter: {fileID: 1967089352}
   enemyMeterCap: {fileID: 1016424949}
-  _FillPct: 0
+  _FillPct: .5
 --- !u!114 &1744815906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2962,6 +2962,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376aa442be24a438285eed148d92d50b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winScore: 10000
+  comboScore: 100
+  bleedScoreInterval: .5
+  bleedScoreAmt: 10
 --- !u!1 &1761570969
 GameObject:
   m_ObjectHideFlags: 0

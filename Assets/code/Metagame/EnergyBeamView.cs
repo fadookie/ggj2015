@@ -35,7 +35,6 @@ public class EnergyBeamView : MonoBehaviour {
 			Vector3 scale = playerMeter.transform.localScale;
 			scale.x = Mathf.Lerp(meterMinXScale, meterMaxXScale, _FillPct);
 			playerMeter.transform.localScale = scale;
-			print (string.Format("playerScale: {0}", scale));
 
 			Vector3 pos = playerMeterCap.transform.position;
 			pos.x = playerMeter.bounds.max.x;
@@ -46,7 +45,6 @@ public class EnergyBeamView : MonoBehaviour {
 			Vector3 scale = enemyMeter.transform.localScale;
 			scale.x = Mathf.Lerp(meterMinXScale, meterMaxXScale, 1 - _FillPct);
 			enemyMeter.transform.localScale = scale;
-			print (string.Format("enemyScale: {0}", scale));
 
 			Vector3 pos = enemyMeterCap.transform.position;
 			pos.x = enemyMeter.bounds.min.x;

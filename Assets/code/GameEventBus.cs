@@ -143,6 +143,7 @@ public class GameEventBus : MonoBehaviour {
 		int nextGameIdx = (gameIdx + 1) % games.Count;
 		games[nextGameIdx].onGoodEvent(delta);
 #endif
+		metagame.onGoodEvent(delta);
 	}
 
 	void onScoreDecrease(MinigameBase sender, int delta) {
@@ -151,5 +152,6 @@ public class GameEventBus : MonoBehaviour {
 		int nextGameIdx = (gameIdx + 1) % games.Count;
 		games[nextGameIdx].onBadEvent(delta);
 #endif
+		metagame.onBadEvent(delta);
 	}
 }
