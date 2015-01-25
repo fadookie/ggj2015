@@ -84,7 +84,7 @@ public class SwordGamePlayer : MonoBehaviour {
 				}
 				else
 				{
-					Attack (direction > 0 ? AttackDirection.Right : AttackDirection.Left);
+					Attack(prevDirection > 0 ? AttackDirection.Right : AttackDirection.Left);
 				}
 				chargeTime = 0.0f;
 				timeSinceLastAttack = 0.0f;
@@ -109,7 +109,6 @@ public class SwordGamePlayer : MonoBehaviour {
 
 	void Attack(AttackDirection direction)
 	{
-
 		switch(direction)
 		{
 		case AttackDirection.Left:
@@ -171,7 +170,7 @@ public class SwordGamePlayer : MonoBehaviour {
 	{
 		toBeRemoved.Add(enemy);
 		swordGame.Score += enemy.pointsValue;
-		Destroy(enemy.gameObject);
+		enemy.Kill();
 	}
 
 	void OnTriggerEnter(Collider collider)

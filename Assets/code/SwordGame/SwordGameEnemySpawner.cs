@@ -48,7 +48,7 @@ public class SwordGameEnemySpawner : MonoBehaviour {
 	public void SpawnBadEnemy()
 	{
 		SwordGameEnemy enemy = SpawnEnemy();
-		enemy.graphics.renderer.material.color = new Color(1f, 0f, 0f);
+		//enemy.graphics.renderer.material.color = new Color(1f, 0f, 0f);
 		enemy.velocity += 1.0f;
 	}
 	
