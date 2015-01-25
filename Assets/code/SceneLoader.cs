@@ -11,6 +11,10 @@ public class SceneLoader : MonoBehaviour {
 	public string[] sceneList = new string[] {
 	};
 
+	public static string mainScene = "Main";
+	public static string winScene = "WinScreen";
+	public static string loseScene = "LoseScreen";
+
 	public bool scenesLoaded = false;
 
 	// Use this for initialization
@@ -30,5 +34,17 @@ public class SceneLoader : MonoBehaviour {
 		if (onScenesLoaded != null) {
 			onScenesLoaded();
 		}
+	}
+
+	public static void loadMainScene() {
+		Application.LoadLevel(mainScene);
+	}
+
+	public static void loadWinScene() {
+		Application.LoadLevel(winScene);
+	}
+
+	public static void loadLoseScene() {
+		Application.LoadLevel(loseScene);
 	}
 }

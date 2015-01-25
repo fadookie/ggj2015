@@ -9,6 +9,9 @@ public class GameEventBus : MonoBehaviour {
 	public string[] gameNames;
 	public List<MinigameBase> games;
 
+	public string metagameName = "Metagame";
+	MinigameBase metagame;
+
 	bool gamesLoaded = false;
 
 	public bool randomizePlayers = false;
@@ -67,6 +70,17 @@ public class GameEventBus : MonoBehaviour {
 			game.PlayerIdx = games.IndexOf(game);
 			subscribeToGame(game);
 		}
+
+		do {
+			GameObject gameObj = GameObject.Find(metagameName);
+			metagame = gameObj.GetComponent<MinigameBase>();
+			if (metagame != null) {
+				print ("found object (" + metagame + ") with name " + metagameName);
+				break;
+			}
+			yield return new WaitForEndOfFrame();
+		} while (metagame == null);
+
 		gamesLoaded = true;
 
 		randomizePlayersRoutine = randomizePlayersAfterDelay();
@@ -113,6 +127,9 @@ public class GameEventBus : MonoBehaviour {
 		int nextGameIdx = gameIdx + 1;
 		if (nextGameIdx < games.Count) {
 			games[nextGameIdx].onCombo(combo);
+		} else if (nextGameIdx == games.Count) {
+			//Special case, pass to metagame
+			metagame.onCombo(combo);
 		}
 	}
 
@@ -126,6 +143,7 @@ public class GameEventBus : MonoBehaviour {
 		int nextGameIdx = (gameIdx + 1) % games.Count;
 		games[nextGameIdx].onGoodEvent(delta);
 #endif
+		metagame.onGoodEvent(delta);
 	}
 
 	void onScoreDecrease(MinigameBase sender, int delta) {
@@ -134,5 +152,6 @@ public class GameEventBus : MonoBehaviour {
 		int nextGameIdx = (gameIdx + 1) % games.Count;
 		games[nextGameIdx].onBadEvent(delta);
 #endif
+		metagame.onBadEvent(delta);
 	}
 }
