@@ -1200,6 +1200,7 @@ MonoBehaviour:
   player: {fileID: 1916062794}
   world: {fileID: 1646221685}
   powerupSpawner: {fileID: 1391061461}
+  scoreLabel: {fileID: 1670938427}
 --- !u!1 &1927792485
 GameObject:
   m_ObjectHideFlags: 0

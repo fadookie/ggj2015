@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class RunnerGame : MinigameBase {
@@ -9,6 +10,8 @@ public class RunnerGame : MinigameBase {
 
 	Combo? activeCombo;
 
+	public Text scoreLabel;
+
 	bool resetting = false;
 	// Use this for initialization
 	void Start () {
@@ -17,7 +20,7 @@ public class RunnerGame : MinigameBase {
 	
 	// Update is called once per frame
 	void Update () {
-
+		scoreLabel.text = string.Format("Score: {0}", Score);
 	}
 
 	public override void onGoodEvent(int magnitude) {
