@@ -188,7 +188,8 @@ public class SwordGamePlayer : MonoBehaviour {
 		rightSlashArea.RemoveEnemy(enemy);
 
 		swordGame.Score += onPlayerHitScore;
-		Destroy(enemy.gameObject);
+		enemy.OnHitPlayer();
+
 	}
 
 }

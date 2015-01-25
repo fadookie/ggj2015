@@ -5,8 +5,10 @@ using System.Collections;
 public class SwordGameEnemy : MonoBehaviour {
 
 	public SwordGame swordGame;
+	public ComboIndicator comboIndicator;
 	public float velocity = 1f;
 	public int pointsValue = 1;
+	public bool superEnemy = false;
 	float alpha = 1;
 	bool dead;
 	SpriteRenderer spriteRenderer;
@@ -56,10 +58,41 @@ public class SwordGameEnemy : MonoBehaviour {
 
 	public void Kill()
 	{
-		dead = true;
-		if(anim)
+		if (!dead)
 		{
-			anim.SetTrigger("Die");
+			dead = true;
+			if (anim)
+			{
+				anim.SetTrigger("Die");
+			}
+			if (superEnemy)
+			{
+				Combo.Color[] colors = { Combo.Color.Color0, Combo.Color.Color1, Combo.Color.Color2 }; 
+				Combo.Shape[] shapes = { Combo.Shape.Shape0, Combo.Shape.Shape1, Combo.Shape.Shape2 }; 
+				Combo newCombo;
+				newCombo.color = colors[Random.Range(0, colors.Length)];
+				newCombo.shape = shapes[Random.Range(0, shapes.Length)];
+				Debug.Log (string.Format("Creating new combo: {0} / {1}", newCombo.color, newCombo.shape));
+				swordGame.postComboEventPassed(newCombo);
+
+				ComboIndicator newComboIndicator = Instantiate(comboIndicator) as ComboIndicator;
+				newComboIndicator.SetCombo(newCombo);
+				newComboIndicator.transform.parent = transform.parent;
+				newComboIndicator.transform.position = transform.position + new Vector3(0f, 3f, 0f);
+			}
+		}
+	}
+
+	public void OnHitPlayer()
+	{
+		if (!dead)
+		{
+			dead = true;
+			alpha = 0f;
+			if (anim)
+			{
+				anim.SetTrigger("Die");
+			}
 		}
 	}
 }
